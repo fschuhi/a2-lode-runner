@@ -1,6 +1,22 @@
 @
 # Lode Runner: Apple II reverse engineering
 
+This is a browsable HTML edition of [lode_runner_reveng](https://github.com/XekriRedmane/lode_runner_reveng), XekriRedmane's literate disassembly of Doug Smith's *Lode Runner* (Broderbund, 1983) for the Apple II. His literate source `main.nw` explains the game's 6502 code and assembles byte for byte to the original game; its rendered reading view is the PDF `main.pdf` in his repository.
+
+This edition is part of the [a2-lode-runner](https://github.com/fschuhi/a2-lode-runner) project. The LaTeX prose of `main.nw` was converted to Markdown, with tables and diagrams redrawn as Markdown tables and Mermaid charts, and woven into these pages with a pipeline adapted from XekriRedmane's [ultima1_reveng](https://github.com/XekriRedmane/ultima1_reveng).
+
+The text is XekriRedmane's. Additions by the a2-lode-runner project are marked like this:
+
+> **(`a2-lode-runner`):** An addition by this project.
+
+For a worked example, see [Chapter 3, Apple II Graphics](apple-ii-graphics.html), which carries findings from the sibling project [a2-hires-lab](https://github.com/fschuhi/a2-hires-lab).
+
+Screenshots were taken from the original game running in AppleWin.
+
+## License
+
+Like the original, this edition is licensed under the [Creative Commons Attribution-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/). *Lode Runner* was written by Doug Smith and published by Broderbund in 1983; rights in the original game, its manual, and its artwork remain with their holders.
+
 # Lode Runner
 
 ## Introduction
