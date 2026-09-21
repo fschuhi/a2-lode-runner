@@ -861,7 +861,14 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
 </header>
 <div class="page-grid">
   <nav class="left" id="left">{toc}</nav>
-  <main id="main">{content}</main>
+  <main id="main">{content}
+<footer style="margin-top: 3rem; color: var(--muted); font-size: .85em;">
+Based on <a href="https://github.com/XekriRedmane/lode_runner_reveng">lode_runner_reveng</a> by XekriRedmane.
+HTML edition by <a href="https://github.com/fschuhi/a2-lode-runner">a2-lode-runner</a>.
+License: <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.
+<a href="index.html">About this edition</a>
+</footer>
+</main>
   <aside class="right">{outline}</aside>
 </div>
 <div id="popover" class="popover" hidden></div>

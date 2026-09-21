@@ -16,7 +16,7 @@ The upstream project reverse engineers the Apple II version of *Ultima I: The Fi
 | Local file       | Upstream file    | Changes                                                                                          |
 |------------------|------------------|--------------------------------------------------------------------------------------------------|
 | `latex_to_md.py` | `latex_to_md.py` | Imports from `weave_lode_runner` instead of `weave`; NOTE header added                           |
-| `weave_html.py`  | `weave_html.py`  | Imports from `weave_lode_runner` instead of `weave`; call to `self.weaver.tangle` commented out; NOTE header added; docstring points to the upstream design document |
+| `weave_html.py`  | `weave_html.py`  | Imports from `weave_lode_runner` instead of `weave`; call to `self.weaver.tangle` commented out; NOTE header added; docstring points to the upstream design document; footer with attribution added to the page template |
 | `web/app.js`     | `web/app.js`     | NOTE comment added                                                                               |
 | `web/style.css`  | `web/style.css`  | NOTE comment added                                                                               |
 
