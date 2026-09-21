@@ -14,8 +14,6 @@
 
 ## Publication
 
-- **Go public** (high priority): make `a2-lode-runner` public with a fresh history, because the existing history still contains the disk image and the manual material. Steps: (1) copy the whole project folder as a backup; (2) in the repo, `git checkout --orphan fresh`, `git commit -m "Initial public release"`, `git branch -D main`, `git branch -m main`; (3) check that `comm -23 <(git log --all --diff-filter=A --name-only --format= | sort -u) <(git ls-files | sort)` prints nothing and that `git ls-files` lists no game material; (4) delete the private repo on GitHub and recreate it, empty, under the same name; (5) `git push -u origin main`; (6) check that the README renders on GitHub, including the Mermaid diagram and all links, and that both licenses show; (7) switch the repo to public.
-
 - **GitHub Pages for the HTML research browser**: publish the site through a GitHub Actions workflow that runs `make nwhtml` on each push to `main`, so that `research/build/` is never committed. Best done after the Chapter 3 tables are converted. _Needs investigation_: whether `make nwhtml` runs unchanged on the Ubuntu runner (Python version, `requirements.txt`, the `.venv` handling in the `Makefile`), and the Pages setting "Source: GitHub Actions".
 
 ---

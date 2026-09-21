@@ -14,7 +14,7 @@ New direction documented: the project focuses on the Apple II original and on a 
 
 ### What's next
 
-- Go public: fresh history, then the checklist in `TODO.md` under "Publication".
+- Check public repo, then the checklist in `TODO.md` under "Publication", particularly GitHub Pages.
 - Then Chapter 8 (Game play): define the bounded research task; the placeholder is in `TODO.md`.
 
 ---

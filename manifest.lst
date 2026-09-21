@@ -59,7 +59,6 @@ scripts/latex_to_md.py
 scripts/weave_html.py
 scripts/weave_lode_runner.py
 scripts/web/app.js
-scripts/web/style.css
 scripts/PROVENANCE.md
 
 ### --- Data ---
