@@ -1,0 +1,98 @@
+# (This file is the basis of the `filesdump.txt` in which it is included, i.e. the document you are reading right now.
+# The files in this manifest are the relevant files for understanding how the project hangs together.
+# Files which are commented out exist but are not included in the `filesdump.txt`.)
+
+### --- Context & Meta ---
+## ⚠️ NON-NEGOTIABLE collaboration rules - READ FIRST
+CRITICAL_RULES.md
+
+## reading guide for bootstrapping a new session; either attached to the first message or passed as message body
+#FIRST_PROMPT.md
+
+LLM_INSTRUCTIONS.md
+manifest.lst
+tmp/project_tree.txt
+
+## standard project documentation
+README.md
+GOALS.md
+TODO.md
+HISTORY.md
+
+## Docs from subproject to use `ultima1_reveng`'s HTML browser instead of static `reference/lode_runner_reveng/main.pdf`
+## The subproject was closed after Phase 0+1. Use `research/build/index.html`.
+docs/reports/literate-migration/ACTION_PLAN.md
+docs/reports/literate-migration/README.md
+docs/reports/literate-migration/phase-0-inventory.md
+docs/reports/literate-migration/phase-1-converter-review.md
+
+### --- Docs ---
+
+## main.nw
+# Index of the chapter-by-chapter research
+docs/main-nw/index.md
+
+# Chapters researched
+docs/main-nw/06-levels.md
+
+# Next chapter to be researched (woven), excerpted with `make nwchapter`, based on `main.nw`
+#tmp/main-chapter-8.md
+
+# Complete index generated with `make nwindex`, based on `main.nw`; upload on demand
+#docs/main-nw/main-index.md
+
+# Target deliverable, completed after research, engine-neutral, starting point for Godot game -- not yet started
+#docs/core-game-spec.md
+
+### --- Build & Python Configuration ---
+Makefile
+requirements.txt
+.gitignore
+.gitattributes
+
+### --- Scripts ---
+# Chapter/chunk/index for LLM (instead of whole `main.nw`)
+scripts/nwtool.py
+
+# Latex -> Markdown -> HTML
+scripts/latex_to_md.py
+scripts/weave_html.py
+scripts/weave_lode_runner.py
+scripts/web/app.js
+scripts/web/style.css
+scripts/PROVENANCE.md
+
+### --- Data ---
+#data/Lode_Runner_1983_Broderbund_cr_Reset_Vector.do
+
+### --- Tests ---
+tests/fixtures/mini.nw
+tests/test_nwtool.py
+
+### --- DevOps tools ---
+#tools/concat_files.py
+
+### --- Reference ---
+## manuals
+#reference/manuals/Loderunner-manual.pdf
+#reference/manuals/Loderunner-manual.md
+#reference/manuals/Loderunner-cover.jpg
+#reference/manuals/Loderunner-shapes.jpg
+
+## https://github.com/XekriRedmane/lode_runner_reveng
+# noweb weaver, used for `nw...` `make` targets
+reference/lode_runner_reveng/PROVENANCE.md
+reference/lode_runner_reveng/README.md
+#reference/lode_runner_reveng/weave.py
+
+# Original literate source, written by XekriRedmane, byte-perfect tangle
+#reference/lode_runner_reveng/main.nw
+#reference/lode_runner_reveng/main.pdf
+
+### -- Research ---
+# Unedited markdown, generated with `make latex-to-md`, generated once
+#research/main.nw.md
+
+# Edited markdown, picked up by `make nwhtml` (see `research/build/index.html`)
+# Usually not included in the `filesdump.txt` (use chapter excerpts instead)
+#research/main.nw-edited.md

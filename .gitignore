@@ -1,0 +1,34 @@
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+
+# Makefile artifacts, raw photos, Excel tempfiles
+tmp/
+~$*
+bak/
+
+# macOS
+.DS_Store
+
+# JetBrains
+.idea/
+
+# Environment / secrets
+.env
+*.toml
+!pyproject.toml
+
+# Original game material, local only, not distributed (see README.md)
+data/*
+!data/.gitkeep
+reference/manuals/
+
+# LLM collaboration files, managed by stencil
+CRITICAL_RULES.md
+LLM_INSTRUCTIONS.md
+FIRST_PROMPT.md

@@ -1,0 +1,45 @@
+\documentclass{report}
+\begin{document}
+
+@ \chapter{First chapter}
+This chapter explains [[WORKER]].
+
+\section{Running the worker}
+The worker calls a helper defined in another chapter.
+
+<<*>>=
+    <<worker>>
+@
+
+<<worker>>=
+WORKER:
+    JSR HELPER
+    <<shared step>>
+@ %def WORKER
+
+The worker continues below.
+
+<<worker>>=
+    LDA VALUE
+    RTS
+@
+
+\subsection{A diagram}
+\begin{tikzpicture}
+\node {Worker};
+\end{tikzpicture}
+
+\chapter{Second chapter}
+This prose belongs only to the second chapter.
+
+<<helper>>=
+HELPER:
+    RTS
+VALUE EQU $10
+@ %def HELPER VALUE
+
+<<shared step>>=
+    NOP
+@
+
+\end{document}

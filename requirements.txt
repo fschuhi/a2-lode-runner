@@ -1,0 +1,7 @@
+# Dev tools
+black>=24.0
+pytest>=8.0
+
+# weave_html.py
+absl-py
+mistune
