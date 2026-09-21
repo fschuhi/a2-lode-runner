@@ -1,0 +1,71 @@
+# Publish the HTML research browser (research/build/) to GitHub Pages.
+#
+# On every push to main, GitHub starts a fresh Ubuntu machine, runs the test
+# suite, builds the site with `make nwhtml`, and publishes it. The generated
+# site is never committed; it only exists inside this workflow run.
+#
+# One-time repository setting: Settings -> Pages -> Source: "GitHub Actions".
+
+name: Publish research browser
+
+on:
+  # Run on every push to main.
+  push:
+    branches: [main]
+  # Also allow a manual start via the "Run workflow" button on the Actions tab.
+  workflow_dispatch:
+
+# The workflow may read the repo and publish to Pages -- nothing else.
+# id-token is how deploy-pages proves to Pages that the upload came from this
+# workflow.
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# If two pushes arrive in quick succession, let the running deployment finish
+# and skip the in-between ones, so deployments never overlap.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get the repository files
+        uses: actions/checkout@v7
+
+      # The same Python version that was tested locally, instead of whatever
+      # the machine happens to have preinstalled.
+      - name: Install Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+
+      # Safety net: if the tests fail, the job stops here and the site that
+      # is already online stays unchanged.
+      - name: Run the tests
+        run: make test
+
+      - name: Build the site
+        run: make nwhtml
+
+      - name: Package the site for Pages
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: research/build
+
+  deploy:
+    # Only starts after the build job has finished successfully.
+    needs: build
+    runs-on: ubuntu-latest
+    # The "github-pages" environment is where GitHub records each deployment
+    # and the URL of the published site.
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Publish to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5
