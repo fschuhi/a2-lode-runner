@@ -12,6 +12,9 @@ tmp/
 ~$*
 bak/
 
+# Patch files delivered in LLM sessions, applied with `make patch`
+*.patch
+
 # macOS
 .DS_Store
 

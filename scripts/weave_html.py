@@ -8,6 +8,8 @@ The call to `self.weaver.tangle` is commented out because we cannot use the olde
 `weave_lode_runner` from this newer (Ultima1-related) caller. This is not a
 problem because we don't need a tangle in this project; we are just interested
 in the woven html output.
+The page template also carries a footer with attribution to lode_runner_reveng
+and its license.
 ***********************************************************************************
 
 This is the new weave backend described in `html-migration-design.md` in the

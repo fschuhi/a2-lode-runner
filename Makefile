@@ -11,7 +11,7 @@ RESEARCH_DIR = $(ROOT_DIR)/research
 SETUP_STAMP = $(VENV_DIR)/.setup_stamp
 
 # --- Phony targets ---
-.PHONY: all setup test test-verbose nwchapter nwindex nwchunk latex-to-md nwhtml clean showtree gentree filesdump filesdump-detailed help
+.PHONY: all setup test test-verbose nwchapter nwindex nwchunk latex-to-md nwhtml clean showtree gentree filesdump filesdump-detailed patch help
 
 # Default target runs 'setup'
 all: setup
@@ -59,6 +59,13 @@ nwhtml: $(SETUP_STAMP) ## convert main.nw-edited.md to html (call after editing)
 		$(RESEARCH_DIR)/build
 
 # --- Utility Targets ---
+
+patch: ## apply all *.patch files in the repo root, then move them to tmp/applied-patches/
+	@ls *.patch >/dev/null 2>&1 || (echo "No *.patch files in the repo root" && exit 1)
+	git apply --check *.patch
+	git apply *.patch
+	mkdir -p tmp/applied-patches
+	mv *.patch tmp/applied-patches/
 
 filesdump: $(SETUP_STAMP) gentree ## Create context dump for LLMs
 	@if [ -f manifest.lst ]; then \
