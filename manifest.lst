@@ -33,6 +33,7 @@ docs/reports/literate-migration/phase-1-converter-review.md
 docs/main-nw/index.md
 
 # Chapters researched
+docs/main-nw/03-graphics.md
 docs/main-nw/06-levels.md
 
 # Next chapter to be researched (woven), excerpted with `make nwchapter`, based on `main.nw`
@@ -55,6 +56,9 @@ requirements.txt
 # Chapter/chunk/index for LLM (instead of whole `main.nw`)
 #scripts/nwtool.py
 
+# sprite_tables.tex -> HTML sprite catalog (`make sprite-catalog`)
+#scripts/sprite_tables_to_html.py
+
 # Latex -> Markdown -> HTML
 #scripts/latex_to_md.py
 #scripts/weave_html.py
@@ -68,6 +72,7 @@ scripts/PROVENANCE.md
 ### --- Tests ---
 #tests/fixtures/mini.nw
 #tests/test_nwtool.py
+#tests/test_sprite_tables_to_html.py
 
 ### --- DevOps tools ---
 #tools/concat_files.py
@@ -88,6 +93,9 @@ reference/lode_runner_reveng/README.md
 # Original literate source, written by XekriRedmane, byte-perfect tangle
 #reference/lode_runner_reveng/main.nw
 #reference/lode_runner_reveng/main.pdf
+
+# Sprite catalog, source of `make sprite-catalog`
+#reference/lode_runner_reveng/sprite_tables.tex
 
 ### -- Research ---
 # Unedited markdown, generated with `make latex-to-md`, generated once

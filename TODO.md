@@ -14,9 +14,7 @@
 
 ## Publication
 
-- ~~**GitHub Pages for the HTML research browser**: publish the site through a GitHub Actions workflow that runs `make nwhtml` on each push to `main`, so that `research/build/` is never committed.~~ Done 2026-09-21/22: live at <https://fschuhi.github.io/a2-lode-runner/>, published by `.github/workflows/pages.yml` (tests, build, deploy on every push), with attribution on the start page and in a footer on every page, and all seven images; see `HISTORY.md`.
-
-- **Tell XekriRedmane about the site**: once Chapter 3 is converted and annotated, write to Xekri about the published HTML edition of `lode_runner_reveng`, with the link and a short note on attribution and the annotation marker.
+- **Tell XekriRedmane about the site**: Chapter 3 is converted and annotated (2026-09-22), so this is ready: write to Xekri about the published HTML edition of `lode_runner_reveng`, with the link and a short note on attribution and the annotation marker.
 
 ---
 
@@ -24,10 +22,7 @@
 
 - **Chapter 8, Game play**: the next focused source-analysis slice. The bounded task definition is written at the start of the next session. Expected result: `docs/main-nw/08-game-play.md`, describing how the running game consumes and mutates the level state documented in `docs/main-nw/06-levels.md`, and naming the guard-specific behavior that is deferred to Chapter 9. The proposed outline is in `docs/main-nw/index.md` under "Recommended next focused chapter".
 
-- **Chapter 3, Apple II Graphics**: best started in a fresh session. Decisions from 2026-09-22:
-  - Convert what the converter left behind in Chapter 3 of `research/main.nw-edited.md`, comparing with `main.pdf`: six `TODO-CONVERT` blocks (four tables, two TikZ diagrams) and the colour table near the top of 3.1, which ended up garbled inside a bullet point without a marker. Xekri's two TikZ diagrams become Mermaid charts (the site renders Mermaid). These are conversions of form and get no marker.
-  - Bring the findings of `a2-hires-lab` into `research/main.nw-edited.md` as annotations, i.e. blockquotes starting with `` **(`a2-lode-runner`):** ``, next to the text they refer to -- in particular the direct 1,792-byte shift table that would replace the two-stage lookup. `a2-hires-lab` already has matching Mermaid charts ("Visual Mechanics Flow" for the lookup in 3.3, "From Sprite Rows to BLOCK_DATA" for the two-into-three-bytes diagram). The start page already points to Chapter 3 as the worked example of annotations.
-  - Write a short `docs/main-nw/03-graphics.md`: chapter status, evidence labels, open questions, and links to the annotations and to `a2-hires-lab`, with a header stating that this is Apple II implementation research, not an input to the Core Game Spec. The explanation itself lives in the annotations, so the two don't drift apart. Open question (_Inferred_): whether the cost of `COMPUTE_SHIFTED_SPRITE` on every sprite draw affects game speed -- to be checked when Chapter 8 shows how the game loop is timed.
+- ~~**Chapter 3, Apple II Graphics**: convert the leftovers in `research/main.nw-edited.md` and add the `a2-hires-lab` findings as annotations, plus a short `docs/main-nw/03-graphics.md`.~~ Done 2026-09-22: all leftovers converted, including the sprite catalog (`make sprite-catalog`); XekriRedmane's two diagrams became PNG crops from `main.pdf`, not Mermaid charts, because both are drawn by position; annotations in 3.1, 3.2 and 3.3; `docs/main-nw/03-graphics.md` written. Open questions there, none blocking. See `HISTORY.md`.
 
 ---
 
@@ -40,5 +35,9 @@
 ---
 
 ## Refactoring
+
+- **Smaller source for the sprite catalog** (only if the size of `research/main.nw-edited.md` starts to hurt): the catalog is about 320 KB of HTML table cells. Either a compact fenced block per sprite (one letter per pixel) that `scripts/weave_html.py` expands, as it does for `mermaid`; or keep `\input{sprite_tables.tex}` as a placeholder that the pipeline fills from `reference/lode_runner_reveng/sprite_tables.tex` at build time.
+
+- **Hide-annotations switch** (idea): a small toggle in `scripts/web/` that collapses the `` **(`a2-lode-runner`):** `` blockquotes, so XekriRedmane's text can be read on its own.
 
 - **`docs/main-nw/index.md` navigation**: the navigation part still treats `main.pdf` as the way into the source. Update it to the HTML research browser -- online at <https://fschuhi.github.io/a2-lode-runner/>, or built locally with `make nwhtml` and opened at `research/build/index.html` -- keeping `main.pdf` as the rendered view of `main.nw`.

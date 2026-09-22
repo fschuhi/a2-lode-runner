@@ -54,6 +54,7 @@ make nwhtml                       # build the HTML research browser into researc
 make nwchapter CHAPTER=8          # export one chapter of main.nw as Markdown into tmp/
 make nwindex                      # export the chapter/chunk/identifier index
 make nwchunk NAME="level draw routine"   # export one named chunk
+make sprite-catalog               # regenerate the sprite catalog in research/main.nw-edited.md
 make filesdump                    # regenerate tmp/filesdump.txt from manifest.lst, for LLM sessions
 make patch                        # apply *.patch files from the repo root, for LLM sessions
 make help                         # list all targets
@@ -73,6 +74,7 @@ a2-lode-runner/
 │   │   ├── main.nw               ← The literate source (LaTeX prose + 6502 assembly)
 │   │   ├── main.pdf              ← Its woven reading view
 │   │   ├── weave.py              ← Upstream noweb parser, used by scripts/nwtool.py
+│   │   ├── sprite_tables.tex     ← Catalog of all 104 sprites, source of `make sprite-catalog`
 │   │   ├── README.md             ← Upstream README
 │   │   └── PROVENANCE.md         ← Upstream repository, commit, and license
 │   └── manuals/                  ← Local only, not committed (see "Sources and evidence")
@@ -83,21 +85,23 @@ a2-lode-runner/
 ├── docs/
 │   ├── main-nw/                  ← Our research notes, one file per researched chapter
 │   │   ├── index.md              ← Navigation, noweb conventions, evidence vocabulary, chapter status
+│   │   ├── 03-graphics.md        ← Chapter 3: status, findings, and open questions of the annotations
 │   │   ├── 06-levels.md          ← Chapter 6: level data, loading, and drawing
 │   │   └── main-index.md         ← Generated chunk and identifier index (`make nwindex`)
 │   └── reports/literate-migration/  ← Plan and reports of the HTML-browser subproject (finished)
 ├── scripts/                      ← Research tools
 │   ├── nwtool.py                 ← Chapter, chunk, and index excerpts from main.nw
+│   ├── sprite_tables_to_html.py  ← sprite_tables.tex -> HTML sprite catalog (`make sprite-catalog`)
 │   ├── latex_to_md.py            ← LaTeX -> Markdown prose conversion (from ultima1_reveng)
 │   ├── weave_html.py             ← Markdown noweb source -> HTML site (from ultima1_reveng)
 │   ├── weave_lode_runner.py      ← Copy of the upstream Lode Runner parser, used by the two above
 │   ├── web/                      ← CSS and JavaScript for the HTML site (from ultima1_reveng)
 │   └── PROVENANCE.md             ← Where each adapted file comes from, and under which terms
-├── tests/                        ← pytest suite for nwtool.py, with a small noweb fixture
+├── tests/                        ← pytest suite for nwtool.py (with a small noweb fixture) and sprite_tables_to_html.py
 ├── tools/
 │   └── concat_files.py           ← Filesdump generator for LLM sessions
 ├── data/                         ← Local only: the disk image, for a future level extractor
-├── images/                       ← Screenshots (AppleWin) and diagrams from lode_runner_reveng, used by the HTML site
+├── images/                       ← Screenshots (AppleWin), diagrams from lode_runner_reveng, and an a2-hires-lab render, used by the HTML site
 ├── GOALS.md                      ← Roadmap and the current "where we are / what's next"
 ├── TODO.md                       ← Concrete, startable work
 ├── HISTORY.md                    ← Record of finished work and decisions
@@ -202,7 +206,7 @@ The LLM collaboration files listed in `manifest.lst` (`CRITICAL_RULES.md`, `LLM_
 
 This repository contains material under two licenses.
 
-**Code: MIT.** My own code -- `scripts/nwtool.py`, the tests in `tests/`, the tools in `tools/`, and the `Makefile` -- is licensed under the [MIT License](LICENSE).
+**Code: MIT.** My own code -- `scripts/nwtool.py`, `scripts/sprite_tables_to_html.py`, the tests in `tests/`, the tools in `tools/`, and the `Makefile` -- is licensed under the [MIT License](LICENSE).
 
 **Research material and documentation: CC BY-SA 4.0.** `main.nw` and the material around it come from [XekriRedmane/lode_runner_reveng](https://github.com/XekriRedmane/lode_runner_reveng), licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). Under the same license are:
 
@@ -213,4 +217,4 @@ This repository contains material under two licenses.
 
 See [`LICENSE-CC-BY-SA-4.0.md`](LICENSE-CC-BY-SA-4.0.md).
 
-*Lode Runner* was written by Doug Smith and published by Broderbund in 1983. Rights in the original game, its manual, and its artwork remain with their holders. Apart from screenshots of the running game in `images/`, made in AppleWin to illustrate the text, no part of the original game is included in this repository.
+*Lode Runner* was written by Doug Smith and published by Broderbund in 1983. Rights in the original game, its manual, and its artwork remain with their holders. Apart from screenshots of the running game in `images/`, made in AppleWin to illustrate the text, and the game's sprites (in `reference/lode_runner_reveng/sprite_tables.tex`, the sprite catalog of the HTML site, and one `a2-hires-lab` rendering in `images/`), no part of the original game is included in this repository.

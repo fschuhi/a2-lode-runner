@@ -266,6 +266,12 @@ Here is a more complex sprite:
 
 Take note of the orange and blue pixels. All the patterns noted in the rules above are used.
 
+> **(`a2-lode-runner`):** This is sprite 9, the player ([[SPRITE_PLAYER]]); the first example is sprite 87, the letter S. Both are in the sprite catalog in the next section. Their colours are not stored in the sprite: they depend on whether a pixel lands on an odd or an even screen column. Moved by an odd number of columns, the same bytes show the dot on the player's head in orange instead of blue:
+>
+> ![The player sprite at two positions an odd number of columns apart: the dot on the head is blue in one and orange in the other](images/player_orange_blue.jpg)
+>
+> *Rendered by [a2-hires-lab](https://github.com/fschuhi/a2-hires-lab), which shows black as grey. The small green square is the selected Excel cell: the top-left corner of the sprite's 14 by 11 area, where the right-hand player was placed.* For how Apple II hi-res colour comes about, see Jeffrey Stanton, *Apple Graphics & Arcade Game Design* (The Book Company, 1982), and the [colour model](https://github.com/fschuhi/a2-hires-lab#the-colour-model) in `a2-hires-lab`.
+
 ## The sprites
 
 Lode Runner defines 104 sprites, each being 11 rows, with two bytes per row. The first bytes of
@@ -1757,6 +1763,10 @@ SPRITE_GUARD_EGG0   EQU     #$39
 SPRITE_GUARD_EGG1   EQU     #$3A
 @
 
+> **(`a2-lode-runner`):** Why this order? The 6502 has no multiply instruction. If each sprite's 22 bytes were stored together, finding a sprite would take a multiplication by 22 on every draw. In this layout the sprite number is itself the index: the table is 22 blocks of 104 bytes, one block per byte position, so `LDA (TMP_PTR),Y` with `Y` set to the sprite number reads that sprite's byte, and the next byte of the same sprite is always 104 (`$68`) bytes further on. [[COMPUTE_SHIFTED_SPRITE]] in the next section works exactly like this.
+>
+> To see which pixel of a sprite belongs to which bit of which byte, [a2-hires-lab](https://github.com/fschuhi/a2-hires-lab) loads a sprite by its number into the `Sprite (load)` sheet, with pixels, bytes, bits and colours side by side.
+
 ## Shifting sprites
 
 This is all very good if we're going to draw sprites exactly on 7-pixel
@@ -1935,6 +1945,35 @@ COMPUTE_SHIFTED_SPRITE:
     BNE     .loop                           ; loop while ROW_COUNT > 0
     RTS
 @ %def COMPUTE_SHIFTED_SPRITE
+
+> **(`a2-lode-runner`):** **A smaller and faster table.** As built, each sprite byte goes through two tables. Its 7-bit pattern `Y` indexes the shift table page for the shift amount, which yields the address of a two-byte entry in [[PIXEL_PATTERN_TABLE]]; the routine writes that address into its own `LDA` instructions and then reads the two result bytes. For pattern `$16` (`%0010110`) shifted by 3:
+>
+> ```mermaid
+> flowchart LR
+>     S["shift 3"] -->|"PIXEL_SHIFT_PAGES"| P["page $A5"]
+>     Y["pattern $16"] --> LO
+>     Y --> HI
+>     P -->|"$A500 + $16"| LO["offset $5A"]
+>     P -->|"$A580 + $16"| HI["page $A9"]
+>     LO --> A["address $A95A<br/>in PIXEL_PATTERN_TABLE"]
+>     HI --> A
+>     A --> B["bytes $B0 $81"]
+> ```
+>
+> There are only 128 patterns times 7 shift amounts, 896 cases of two bytes each. A table holding those result bytes directly needs 896 x 2 = 1,792 bytes: exactly the size of [[PIXEL_SHIFT_TABLE]] alone, with byte 0 in the first half of each page and byte 1 in the second half, where the offsets and pages sit now. The lookup then becomes two plain reads, and the per-byte patching disappears:
+>
+> ```
+>     LDA     $A200,Y         ; page patched to $A2 + shift once per sprite -> byte 0
+>     STA     BLOCK_DATA,X
+>     LDA     $A280,Y         ; same page, second half -> byte 1
+>     STA     BLOCK_DATA+1,X
+> ```
+>
+> This would save the 1,024 bytes of [[PIXEL_PATTERN_TABLE]] and 56 of the 162 cycles per sprite row: 1,208 instead of 1,824 cycles for the whole routine, a third less. (Counted with the standard 6502 timings, including the `RTS`; the occasional extra cycle when `(TMP_PTR),Y` crosses a page is the same in both versions.) The two tables were checked against direct shifting for all 896 cases, and all 512 pattern entries are used. The check runs as a test in [a2-hires-lab](https://github.com/fschuhi/a2-hires-lab), whose `Pixel Shifter` and `Sprite Shifter` sheets follow both lookups step by step.
+>
+> Reducing 896 cases to 512 unique patterns looks like a saving, but the two-byte pointers to them cost as much as the result bytes themselves. Why the game uses two tables anyway is not known.
+>
+> **Why `main.pdf` says "never used".** In `main.pdf`, the notes under the definitions of [[PIXEL_SHIFT_TABLE]] and [[PIXEL_PATTERN_TABLE]] say "never used", although this routine reads both on every call. No instruction names them: the shift table is reached through the page numbers in [[PIXEL_SHIFT_PAGES]], and the pattern table through addresses the routine writes into its own instructions. A cross-reference built from names cannot see accesses like these.
 
 ## Memory mapped graphics
 

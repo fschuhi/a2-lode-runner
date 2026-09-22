@@ -337,7 +337,7 @@ Status meanings:
 |---:|---|---|---|
 | 1 | Lode Runner | Surveyed | Provides the game overview and explains the purpose of the reverse-engineering document. No separate chapter note is currently needed. |
 | 2 | Programming techniques | Surveyed | Introduces recurring 6502 techniques, DOS context, shared scratch storage, and source conventions. Consult as needed while studying behavioral chapters. |
-| 3 | Apple II Graphics | Partial | Sprite values, board drawing, screen organization, and related routines were consulted during the level investigation. A focused graphics pass remains possible but is not the next priority. |
+| 3 | Apple II Graphics | Partial | See [`03-graphics.md`](03-graphics.md). Sections 3.1 to 3.3 carry annotations with the `a2-hires-lab` findings: sprite colours, the sprite table layout, and the two-stage shift lookup with a direct 1,792-byte alternative. Section 3.4 (memory-mapped graphics) and the rest are not researched. Apple II implementation research, not an input to the Core Game Spec; not the next priority. |
 | 4 | Sound | Not started | Self-contained sound subsystem. It can be deferred until core gameplay behavior is understood. |
 | 5 | Input | Partial | Level-number entry and input-related state were encountered while tracing level selection. General joystick, keyboard, and control behavior still requires focused study. |
 | 6 | Levels | Complete | See [`06-levels.md`](06-levels.md). Covers board dimensions, packed sector data, cell values, disk-level addressing, attract-mode data, decoding, initialization markers, hidden ladders, validation, and the proposed portable level contract. |

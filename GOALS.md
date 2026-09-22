@@ -10,12 +10,12 @@
 
 ### Where we are
 
-The repo is public, and the HTML research browser is published on GitHub Pages (<https://fschuhi.github.io/a2-lode-runner/>), rebuilt on every push to `main`, with attribution to XekriRedmane on the start page and on every page, and with all images of `main.nw`.
+The HTML research browser is published on GitHub Pages (<https://fschuhi.github.io/a2-lode-runner/>). The last `TODO-CONVERT` markers of the conversion from `main.nw` are gone, and Chapter 3 now carries the sprite catalog and the first annotations, the findings of `a2-hires-lab` (see `docs/main-nw/03-graphics.md`).
 
 ### What's next
 
-- Chapter 3 (Apple II Graphics) in a fresh session: convert the remaining tables and diagrams and add the `a2-hires-lab` findings as annotations; decisions are in `TODO.md`. Afterwards, tell XekriRedmane about the site.
-- Then Chapter 8 (Game play): define the bounded research task; the placeholder is in `TODO.md`.
+- Chapter 8 (Game play): define the bounded research task at the start of the session; the placeholder is in `TODO.md`. Graphics is deliberately parked.
+- Tell XekriRedmane about the site; the item is in `TODO.md`.
 
 ---
 
