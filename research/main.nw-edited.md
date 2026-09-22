@@ -1782,36 +1782,7 @@ their high bits, so we end up with [[10110000 10000100]].
 Now, given a shift amount and a pixel pattern, we should be able to find the
 two-byte shifted pattern. Lode Runner accomplishes this with table lookups as follows:
 
-\vspace{1em}
-> **TODO-CONVERT — diagram (→ Mermaid):**
-
-```latex
-\begin{tikzpicture}
-  [basicbox/.style={draw,rectangle,inner sep=0pt,minimum width=1.5cm,minimum height=1.5cm,fill=blue!10},
-   pageoffsets/.style={basicbox,minimum height=1cm,text height=1.5ex,text depth=.25ex},
-   multilinebox/.style={basicbox,text width=1cm,align=center}]
-  \node (pixelshiftpages) at (0,0) [multilinebox] {pixel shift pages};
-  \node (start) at (-3,0) {};
-  \draw [->] (start) -- (pixelshiftpages) node [above,text width=1cm,align=center,midway] {shift amount};
-  \node (offsets0) [pageoffsets,anchor=north,below right=0 and 2 of pixelshiftpages.north east] {offsets};
-  \node (pages0) [pageoffsets,below=0 of offsets0.south] {pages};
-  \node (offsets1) [pageoffsets,below=0 of pages0.south,fill=blue!30] {offsets};
-  \node (pages1) [pageoffsets,below=0 of offsets1.south,fill=blue!30] {pages};
-  \node (offsets2) [pageoffsets,below=0 of pages1.south] {offsets};
-  \node (pages2) [pageoffsets,below=0 of offsets2.south] {pages};
-  \draw [->] (pixelshiftpages) -- (offsets1.north west) {};
-  \node (pixelpattern) [above left=1 and 0 of offsets0.north west] {pixel pattern};
-  \draw [->] (pixelpattern.south) |- (offsets1.west) {};
-  \draw [->] (pixelpattern.south) |- (pages1.west) {};
-  \node (patterntable) [multilinebox,minimum height=4cm,text width=1.2cm,anchor=north west,below right=0 and 2 of offsets0.north east] {pixel pattern table};
-  \node (join) [inner sep=0pt,below right=0 and 1 of offsets1.south east] {};
-  \draw (offsets1.east) -- (join);
-  \draw (pages1.east) -- (join);
-  \draw [->] (join) -- ([yshift=5mm]patterntable.west);
-\end{tikzpicture}
-```
-
-\vspace{1em}
+<img src="images/shift-lookup-tables.png" alt="Diagram: the shift amount selects a page of the pixel shift table, the pixel pattern selects an offset and a page in it, and together they point into the pixel pattern table" width="440">
 
 The pixel pattern table is a table of every possible pattern of 7 consecutive pixels
 spread out over two bytes. This table is 512 entries, each entry being two bytes.
@@ -1855,31 +1826,7 @@ it shifts the second byte of the sprite, and combines that two-byte result
 with the first. Thus, we shift two bytes of sprite data into a three-byte
 result.
 
-> **TODO-CONVERT — diagram (→ Mermaid):**
-
-```latex
-\begin{tikzpicture}
-  [basicbox/.style={draw,rectangle,inner sep=0pt,minimum width=1.5cm,minimum height=0.5cm,fill=blue!10}]
-  \node (spriterowbyte0) at (0,0) [basicbox] {};
-  \node (spriterowbyte1) [basicbox,right=0 of spriterowbyte0.east] {};
-  \node (spriterowlabel) [left=0.1 of spriterowbyte0.west] {sprite row};
-  \node (shifted0byte0) [basicbox,below left=1 and 0 of spriterowbyte0.south west] {};
-  \node (shifted0byte1) [basicbox,right=0 of shifted0byte0.east] {};
-  \node (shifted1byte0) [basicbox,below right=2 and 0 of spriterowbyte0.south west] {};
-  \node (shifted1byte1) [basicbox,right=0 of shifted1byte0.east] {};
-  \node (orlabel) [below=0 of shifted0byte1] {OR};
-  \draw [->] (spriterowbyte0.south) -- (shifted0byte0.north east)
-    node [left,text width=1cm,align=center,midway] {shift};
-  \draw [->] (spriterowbyte1.south) to [auto, bend left=45] node {shift} (shifted1byte0.north east);
-  \node (result0) [basicbox,below left=0.5 and 0 of shifted1byte0.south west] {};
-  \node (result1) [basicbox,right=0 of result0.east] {};
-  \node (result2) [basicbox,right=0 of result1.east] {};
-  \draw [->] (shifted0byte0) -- (result0) {};
-  \draw [->] (shifted1byte0) -- (result1) {};
-  \draw [->] (shifted1byte1) -- (result2) {};
-  \node (blocklabel) [right=0.1 of result2.east] {block data};
-\end{tikzpicture}
-```
+<img src="images/shift-sprite-row.png" alt="Diagram: both bytes of a sprite row are shifted into two-byte results, which are ORed together into the three bytes of block data" width="281">
 
 
 Rather than load addresses from the tables and store them, the routine

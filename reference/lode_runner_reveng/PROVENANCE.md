@@ -32,6 +32,13 @@ Two diagrams from the upstream `images/` directory, taken from the same upstream
 | `images/read_joystick_for_command.jpg`     | Flowchart of the `READ_JOYSTICK_FOR_COMMAND` routine   |
 | `images/lode_runner_game_loop.jpg`         | Flowchart of the game loop                             |
 
+Two diagrams cropped from `main.pdf` (same upstream commit) at 200 dpi, because their TikZ source is drawn by position and does not translate into Mermaid without becoming a different diagram:
+
+| Local path                         | Source in `main.pdf`                                                    |
+|------------------------------------|-------------------------------------------------------------------------|
+| `images/shift-lookup-tables.png`   | Page 24, section 3.3: the table lookup for shifting a pixel pattern      |
+| `images/shift-sprite-row.png`      | Page 25, section 3.3: two sprite bytes shifted into three bytes of block data |
+
 ## Relationship to other literate sources
 
 - `reference/lode_runner_reveng/main.nw`: original source, authored by XekriRedmane (LaTeX)
