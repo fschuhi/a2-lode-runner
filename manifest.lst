@@ -53,21 +53,21 @@ requirements.txt
 
 ### --- Scripts ---
 # Chapter/chunk/index for LLM (instead of whole `main.nw`)
-scripts/nwtool.py
+#scripts/nwtool.py
 
 # Latex -> Markdown -> HTML
-scripts/latex_to_md.py
-scripts/weave_html.py
-scripts/weave_lode_runner.py
-scripts/web/app.js
+#scripts/latex_to_md.py
+#scripts/weave_html.py
+#scripts/weave_lode_runner.py
+#scripts/web/app.js
 scripts/PROVENANCE.md
 
 ### --- Data ---
 #data/Lode_Runner_1983_Broderbund_cr_Reset_Vector.do
 
 ### --- Tests ---
-tests/fixtures/mini.nw
-tests/test_nwtool.py
+#tests/fixtures/mini.nw
+#tests/test_nwtool.py
 
 ### --- DevOps tools ---
 #tools/concat_files.py

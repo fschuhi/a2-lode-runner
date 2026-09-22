@@ -186,29 +186,31 @@ Here are some rules for how these bytes are turned into pixels:
 - So, a pattern of [[01010]] results in at least three consecutive colored pixels starting from the first [[1]] to the last [[1]]. The last [[0]] bit would also be colored if followed by a [[1]].
 - Likewise, a pattern of [[11011]] results in two white pixels, a colored pixel, and then two more white pixels.
 - The color of a [[010]] pixel depends on the column that the [[1]] falls on, and also whether the high bit of its byte was set or not.
-- The color of a [[11011]] pixel depends on the column that the [[0]] falls on, and also whether the high bit of its byte was set or not. \begin{center} \begin{tabular}{@{}rcc@{}} \toprule & Odd & Even <br> \cmidrule(r){2-3} High bit clear & Green & Violet <br> High bit set & Orange & Blue <br> \bottomrule \end{tabular} \end{center} The implication is that you can only select one pair of colors per byte.
+- The color of a [[11011]] pixel depends on the column that the [[0]] falls on, and also whether the high bit of its byte was set or not.
+
+|                | Odd    | Even   |
+| -------------- | ------ | ------ |
+| High bit clear | Green  | Violet |
+| High bit set   | Orange | Blue   |
+
+The implication is that you can only select one pair of colors per byte.
 
 
 An example would probably be good here. We will take one of the sprites from the game.
 
-> **TODO-CONVERT — table (→ pipe/HTML table):**
-
-```latex
-\begin{tabular}{@{}rcc@{}} \toprule
-Bytes & Bits & Pixel Data \\ \cmidrule{1-3}
-[[00 00]] & [[0000000 0000000]] & [[00000000000000]] \\
-[[00 00]] & [[0000000 0000000]] & [[00000000000000]] \\
-[[00 00]] & [[0000000 0000000]] & [[00000000000000]] \\
-[[55 00]] & [[1010101 0000000]] & [[10101010000000]] \\
-[[41 00]] & [[1000001 0000000]] & [[10000010000000]] \\
-[[01 00]] & [[0000001 0000000]] & [[10000000000000]] \\
-[[55 00]] & [[1010101 0000000]] & [[10101010000000]] \\
-[[50 00]] & [[1010000 0000000]] & [[00001010000000]] \\
-[[50 00]] & [[1010000 0000000]] & [[00001010000000]] \\
-[[51 00]] & [[1010001 0000000]] & [[10001010000000]] \\
-[[55 00]] & [[1010101 0000000]] & [[10101010000000]] \\ \bottomrule
-\end{tabular}
-```
+| Bytes | Bits | Pixel Data |
+| ----- | ---- | ---------- |
+| [[00 00]] | [[0000000 0000000]] | [[00000000000000]] |
+| [[00 00]] | [[0000000 0000000]] | [[00000000000000]] |
+| [[00 00]] | [[0000000 0000000]] | [[00000000000000]] |
+| [[55 00]] | [[1010101 0000000]] | [[10101010000000]] |
+| [[41 00]] | [[1000001 0000000]] | [[10000010000000]] |
+| [[01 00]] | [[0000001 0000000]] | [[10000000000000]] |
+| [[55 00]] | [[1010101 0000000]] | [[10101010000000]] |
+| [[50 00]] | [[1010000 0000000]] | [[00001010000000]] |
+| [[50 00]] | [[1010000 0000000]] | [[00001010000000]] |
+| [[51 00]] | [[1010001 0000000]] | [[10001010000000]] |
+| [[55 00]] | [[1010101 0000000]] | [[10101010000000]] |
 
 
 The game automatically sets the high bit of each byte, so we know we're going to see
@@ -236,24 +238,19 @@ sprite starting at column 0, we should see this:
 
 Here is a more complex sprite:
 
-> **TODO-CONVERT — table (→ pipe/HTML table):**
-
-```latex
-\begin{tabular}{@{}rcc@{}} \toprule
-Bytes & Bits & Pixel Data \\ \cmidrule{1-3}
-[[40 00]] & [[1000000 0000000]] & [[00000010000000]] \\
-[[60 01]] & [[1100000 0000001]] & [[00000111000000]] \\
-[[60 01]] & [[1100000 0000001]] & [[00000111000000]] \\
-[[70 00]] & [[1110000 0000000]] & [[00001110000000]] \\
-[[6C 01]] & [[1101100 0000001]] & [[00110111000000]] \\
-[[36 06]] & [[0110110 0000110]] & [[01101100110000]] \\
-[[30 00]] & [[0110000 0000000]] & [[00001100000000]] \\
-[[70 00]] & [[1110000 0000000]] & [[00001110000000]] \\
-[[5E 01]] & [[1011110 0000001]] & [[01111011000000]] \\
-[[40 01]] & [[1000000 0000001]] & [[00000011000000]] \\
-[[40 01]] & [[1000000 0000001]] & [[00000011000000]] \\ \bottomrule
-\end{tabular}
-```
+| Bytes | Bits | Pixel Data |
+| ----- | ---- | ---------- |
+| [[40 00]] | [[1000000 0000000]] | [[00000010000000]] |
+| [[60 01]] | [[1100000 0000001]] | [[00000111000000]] |
+| [[60 01]] | [[1100000 0000001]] | [[00000111000000]] |
+| [[70 00]] | [[1110000 0000000]] | [[00001110000000]] |
+| [[6C 01]] | [[1101100 0000001]] | [[00110111000000]] |
+| [[36 06]] | [[0110110 0000110]] | [[01101100110000]] |
+| [[30 00]] | [[0110000 0000000]] | [[00001100000000]] |
+| [[70 00]] | [[1110000 0000000]] | [[00001110000000]] |
+| [[5E 01]] | [[1011110 0000001]] | [[01111011000000]] |
+| [[40 01]] | [[1000000 0000001]] | [[00000011000000]] |
+| [[40 01]] | [[1000000 0000001]] | [[00000011000000]] |
 
 
 > **TODO-CONVERT — table (→ pipe/HTML table):**

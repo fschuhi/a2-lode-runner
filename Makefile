@@ -11,7 +11,7 @@ RESEARCH_DIR = $(ROOT_DIR)/research
 SETUP_STAMP = $(VENV_DIR)/.setup_stamp
 
 # --- Phony targets ---
-.PHONY: all setup test test-verbose nwchapter nwindex nwchunk latex-to-md nwhtml clean showtree gentree filesdump filesdump-detailed patch help
+.PHONY: all setup test test-verbose nwchapter nwindex nwchunk latex-to-md nwhtml sprite-catalog clean showtree gentree patch filesdump filesdump-detailed help
 
 # Default target runs 'setup'
 all: setup
@@ -58,7 +58,24 @@ nwhtml: $(SETUP_STAMP) ## convert main.nw-edited.md to html (call after editing)
 		$(RESEARCH_DIR)/main.nw-edited.md \
 		$(RESEARCH_DIR)/build
 
+sprite-catalog: $(SETUP_STAMP) ## write the sprite catalog from sprite_tables.tex into main.nw-edited.md (between its markers)
+	$(RUN_WITH_PATH) python scripts/sprite_tables_to_html.py \
+		$(ROOT_DIR)/reference/lode_runner_reveng/sprite_tables.tex \
+		$(RESEARCH_DIR)/main.nw-edited.md
+
 # --- Utility Targets ---
+
+clean: ## Remove venv, cache, and tmp files
+	rm -rf $(VENV_DIR) .pytest_cache tmp
+	find . -name "__pycache__" -type d -prune -exec rm -rf {} +
+	find . -name "*.egg-info" -type d -prune -exec rm -rf {} +
+
+showtree: ## Show project directory structure
+	tree -I ".venv|__pycache__|.idea|.pytest_cache|*egg-info|tmp"
+
+gentree: ## Save tree structure to file
+	mkdir -p tmp
+	tree -I ".venv|__pycache__|.idea|.pytest_cache|*egg-info|tmp" > tmp/project_tree.txt
 
 patch: ## apply all *.patch files in the repo root, then move them to tmp/applied-patches/
 	@ls *.patch >/dev/null 2>&1 || (echo "No *.patch files in the repo root" && exit 1)
@@ -82,18 +99,6 @@ filesdump-detailed: $(SETUP_STAMP) gentree ## Create context dump for LLMs with 
 	else \
 		echo "Error: manifest.lst not found"; \
 	fi
-
-clean: ## Remove venv, cache, and tmp files
-	rm -rf $(VENV_DIR) .pytest_cache tmp
-	find . -name "__pycache__" -type d -prune -exec rm -rf {} +
-	find . -name "*.egg-info" -type d -prune -exec rm -rf {} +
-
-showtree: ## Show project directory structure
-	tree -I ".venv|__pycache__|.idea|.pytest_cache|*egg-info|tmp"
-
-gentree: ## Save tree structure to file
-	mkdir -p tmp
-	tree -I ".venv|__pycache__|.idea|.pytest_cache|*egg-info|tmp" > tmp/project_tree.txt
 
 help: ## Show this help message
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-20s\033[0m %s\n", $$1, $$2}'

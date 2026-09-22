@@ -21,6 +21,7 @@ The files in this directory are an unmodified snapshot of upstream files. `main.
 | `weave.py`  | Noweb parser and chunk-graph engine, used by `scripts/nwtool.py` |
 | `main.nw`   | Noweb literate source; uses LaTeX for prose chunks               |
 | `main.pdf`  | `main.nw` woven into a PDF                                       |
+| `sprite_tables.tex` | Catalog of all 104 sprites as coloured pixel tables, pulled into `main.nw` by `\input{sprite_tables.tex}`; converted to HTML by `scripts/sprite_tables_to_html.py` (`make sprite-catalog`) |
 
 ## Imported material outside this directory
 
