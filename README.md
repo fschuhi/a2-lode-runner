@@ -97,6 +97,7 @@ a2-lode-runner/
 ├── tools/
 │   └── concat_files.py           ← Filesdump generator for LLM sessions
 ├── data/                         ← Local only: the disk image, for a future level extractor
+├── images/                       ← Screenshots (AppleWin) and diagrams from lode_runner_reveng, used by the HTML site
 ├── GOALS.md                      ← Roadmap and the current "where we are / what's next"
 ├── TODO.md                       ← Concrete, startable work
 ├── HISTORY.md                    ← Record of finished work and decisions

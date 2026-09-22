@@ -10,11 +10,11 @@
 
 ### Where we are
 
-New direction documented: the project focuses on the Apple II original and on a platform-neutral Core Game Spec, and Godot is optional. The repo is cleaned up, licensed, and ready to go public.
+The repo is public, and the HTML research browser is published on GitHub Pages (<https://fschuhi.github.io/a2-lode-runner/>), rebuilt on every push to `main`, with attribution to XekriRedmane on the start page and on every page, and with all images of `main.nw`.
 
 ### What's next
 
-- Check public repo, then the checklist in `TODO.md` under "Publication", particularly GitHub Pages.
+- Chapter 3 (Apple II Graphics) in a fresh session: convert the remaining tables and diagrams and add the `a2-hires-lab` findings as annotations; decisions are in `TODO.md`. Afterwards, tell XekriRedmane about the site.
 - Then Chapter 8 (Game play): define the bounded research task; the placeholder is in `TODO.md`.
 
 ---

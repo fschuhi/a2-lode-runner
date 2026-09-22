@@ -47,6 +47,7 @@ docs/main-nw/06-levels.md
 ### --- Build & Python Configuration ---
 Makefile
 requirements.txt
+.github/workflows/pages.yml
 .gitignore
 .gitattributes
 
