@@ -101,6 +101,7 @@ table.bytefield td:nth-child(1), table.bytefield td:nth-child(2) {
 table.bytefield td:nth-child(2) { color: var(--muted); }
 table.soa td:first-child { font-family: "SF Mono", Menlo, Consolas, monospace; white-space: nowrap; }
 blockquote { border-left: 3px solid var(--line); margin: 1rem 0; padding: .2rem 1rem; color: var(--muted); }
+main img { max-width: 100%; height: auto; }
 pre.verbatim { background: var(--code-bg); border: 1px solid var(--line); border-radius: 8px;
   padding: .8rem 1rem; overflow: auto; font-size: .88rem; }
 .mermaid { margin: 1.2rem 0; text-align: center; }

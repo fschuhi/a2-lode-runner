@@ -22,6 +22,15 @@ The files in this directory are an unmodified snapshot of upstream files. `main.
 | `main.nw`   | Noweb literate source; uses LaTeX for prose chunks               |
 | `main.pdf`  | `main.nw` woven into a PDF                                       |
 
+## Imported material outside this directory
+
+Two diagrams from the upstream `images/` directory, taken from the same upstream commit and used unmodified in the HTML research browser:
+
+| Local path                                 | Purpose in this project                                |
+|--------------------------------------------|--------------------------------------------------------|
+| `images/read_joystick_for_command.jpg`     | Flowchart of the `READ_JOYSTICK_FOR_COMMAND` routine   |
+| `images/lode_runner_game_loop.jpg`         | Flowchart of the game loop                             |
+
 ## Relationship to other literate sources
 
 - `reference/lode_runner_reveng/main.nw`: original source, authored by XekriRedmane (LaTeX)

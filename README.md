@@ -212,4 +212,4 @@ This repository contains material under two licenses.
 
 See [`LICENSE-CC-BY-SA-4.0.md`](LICENSE-CC-BY-SA-4.0.md).
 
-*Lode Runner* was written by Doug Smith and published by Broderbund in 1983. Rights in the original game, its manual, and its artwork remain with their holders. No part of the original game is included in this repository.
+*Lode Runner* was written by Doug Smith and published by Broderbund in 1983. Rights in the original game, its manual, and its artwork remain with their holders. Apart from screenshots of the running game in `images/`, made in AppleWin to illustrate the text, no part of the original game is included in this repository.

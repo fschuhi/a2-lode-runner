@@ -25,7 +25,7 @@ Like the original, this edition is licensed under the [Creative Commons Attribut
 Lode Runner was a game originally written in 1982 by Douglas E. Smith (1960–2014) for
 the Apple II series of computers, and published by Broderbund.
 
-\includegraphics[width=\columnwidth]{title-screen}
+![Lode Runner title screen](images/title-screen.jpg)
 
 You control the movement of your character, moving left and right along brick
 and bedrock platforms, climbing ladders,
@@ -41,7 +41,7 @@ You get points for collecting boxes and forcing guards to respawn. Once you coll
 all the boxes, a ladder will appear leading out of the top of the screen. This
 gets you to the next level, and play continues.
 
-\includegraphics[width=\columnwidth]{screen}
+![A Lode Runner level in play](images/screen.jpg)
 
 Lode Runner included 150 levels and also a level editor.
 
@@ -1384,7 +1384,7 @@ The score is always put on the screen at row 16 column 5, but
 only the last 7 digits. Row 16 is the status line, as can be
 seen at the bottom of this screenshot.
 
-\includegraphics[width=\columnwidth]{screen}
+![A Lode Runner level in play, with the status line at the bottom](images/screen.jpg)
 
 There's a routine to add a 4-digit BCD
 number to the score and then update it on the screen.
@@ -2778,7 +2778,7 @@ Revealing the screen, using an iris wipe. Then, we remove the guard and player s
 Whenever a level is finished or starts, there's an iris wipe transition. The routine that starts it
 off is [[IRIS_WIPE]].
 
-\includegraphics[width=\columnwidth]{iris}
+![The iris wipe closing in on a level](images/iris.jpg)
 
 <<defines>>=
 WIPE_COUNTER        EQU     $6D
@@ -5148,7 +5148,7 @@ keyboard command. Otherwise, the joystick state is read and compared to the
 thresholds [[0x12]] and [[0x2E]], which can be reversed through the ctrl-X key,
 and translated to left, right, up, or down keyboard commands.
 
-\includegraphics[width=\columnwidth]{read_joystick_for_command}
+![Flowchart of the joystick reading routine](images/read_joystick_for_command.jpg)
 
 
 <<tables>>=
@@ -5734,7 +5734,7 @@ TRY_MOVING_RIGHT:
 Provided there's nothing preventing the player from digging, digging involves a brick animation
 below and next to the player, and a "debris" animation above the dig site.
 
-\includegraphics[width=\columnwidth]{digging}
+![Digging: the brick and debris animation](images/digging.jpg)
 
 The [[DIG_DIRECTION]] location stores which direction we're digging in, and the [[DIG_ANIM_STATE]]
 location stores how far along in the 13-step animation cycle we are.
@@ -8857,7 +8857,7 @@ GUARD_PATTERNS_LIST:
 The game loop, which runs in both attract mode and in play mode, effectively implements
 the following flowchart:
 
-\includegraphics[height=\textheight]{lode_runner_game_loop}
+![Flowchart of the game loop](images/lode_runner_game_loop.jpg)
 
 <<game loop>>=
     ORG     $609F
