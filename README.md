@@ -2,6 +2,8 @@
 
 **Understanding the original Apple II Lode Runner down to its 6502 code, and turning that understanding into a platform-neutral description of the game -- built on XekriRedmane's literate disassembly.**
 
+**Read it online:** <https://fschuhi.github.io/a2-lode-runner/>
+
 ---
 
 ## What this is
@@ -39,7 +41,7 @@ graph TD
     NW -- "make nwchapter / nwindex / nwchunk" --> EX
 ```
 
-The mechanical conversion `research/main.nw.md` was verified to tangle to exactly the same assembly as the upstream source. The generated site in `research/build/` is not committed; build it locally with `make nwhtml` and open `research/build/index.html`.
+The mechanical conversion `research/main.nw.md` was verified to tangle to exactly the same assembly as the upstream source. The site is published at <https://fschuhi.github.io/a2-lode-runner/>. On every push to `main`, the GitHub Actions workflow `.github/workflows/pages.yml` runs the tests, builds the site with `make nwhtml`, and publishes it to GitHub Pages. The generated site in `research/build/` is never committed; to build it locally, run `make nwhtml` and open `research/build/index.html`.
 
 ---
 
@@ -53,6 +55,7 @@ make nwchapter CHAPTER=8          # export one chapter of main.nw as Markdown in
 make nwindex                      # export the chapter/chunk/identifier index
 make nwchunk NAME="level draw routine"   # export one named chunk
 make filesdump                    # regenerate tmp/filesdump.txt from manifest.lst, for LLM sessions
+make patch                        # apply *.patch files from the repo root, for LLM sessions
 make help                         # list all targets
 ```
 
@@ -64,6 +67,7 @@ Developed on macOS. `make help` lists the complete set of targets.
 
 ```
 a2-lode-runner/
+├── .github/workflows/pages.yml   ← Builds and publishes the HTML site to GitHub Pages
 ├── reference/
 │   ├── lode_runner_reveng/       ← Upstream snapshot from XekriRedmane (CC BY-SA 4.0), never modified
 │   │   ├── main.nw               ← The literate source (LaTeX prose + 6502 assembly)
