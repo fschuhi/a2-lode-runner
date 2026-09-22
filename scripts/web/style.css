@@ -102,6 +102,21 @@ table.bytefield td:nth-child(2) { color: var(--muted); }
 table.soa td:first-child { font-family: "SF Mono", Menlo, Consolas, monospace; white-space: nowrap; }
 blockquote { border-left: 3px solid var(--line); margin: 1rem 0; padding: .2rem 1rem; color: var(--muted); }
 main img { max-width: 100%; height: auto; }
+/* sprite pixel grids (Chapter 3): one cell per pixel, colours as in main.nw */
+main table.spritegrid { border-collapse: collapse; margin: 1rem 0; }
+main table.spritegrid td { width: 12px; height: 12px; padding: 0; border: none; }
+main table.spritegrid td.row { width: auto; padding-right: .5rem; text-align: right; line-height: 12px;
+  font-family: "SF Mono", Menlo, Consolas, monospace; font-size: .7rem; color: var(--muted); }
+table.spritegrid td.k { background: #000000; }
+table.spritegrid td.b { background: #1BA1E2; }
+table.spritegrid td.w { background: #E6E6E6; }
+table.spritegrid td.o { background: #FF8000; }
+/* sprite catalog (Chapter 3): captioned grids that flow across the page */
+.sprite-catalog { display: flex; flex-wrap: wrap; gap: 1rem 1.5rem; margin: 1rem 0; }
+.sprite-catalog figure.sprite { margin: 0; }
+.sprite-catalog figcaption { font-size: .8rem; color: var(--muted); text-align: center; margin-bottom: .25rem; }
+.sprite-catalog table.spritegrid { margin: 0; }
+.sprite-catalog table.spritegrid td { width: 10px; height: 10px; }
 pre.verbatim { background: var(--code-bg); border: 1px solid var(--line); border-radius: 8px;
   padding: .8rem 1rem; overflow: auto; font-size: .88rem; }
 .mermaid { margin: 1.2rem 0; text-align: center; }

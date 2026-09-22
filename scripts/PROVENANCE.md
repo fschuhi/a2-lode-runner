@@ -18,7 +18,7 @@ The upstream project reverse engineers the Apple II version of *Ultima I: The Fi
 | `latex_to_md.py` | `latex_to_md.py` | Imports from `weave_lode_runner` instead of `weave`; NOTE header added                           |
 | `weave_html.py`  | `weave_html.py`  | Imports from `weave_lode_runner` instead of `weave`; call to `self.weaver.tangle` commented out; NOTE header added; docstring points to the upstream design document; footer with attribution added to the page template |
 | `web/app.js`     | `web/app.js`     | NOTE comment added                                                                               |
-| `web/style.css`  | `web/style.css`  | NOTE comment added; rule added that shrinks images to the width of the reading column            |
+| `web/style.css`  | `web/style.css`  | NOTE comment added; rule added that shrinks images to the width of the reading column; rules added for the sprite pixel grids and the sprite catalog of Chapter 3 |
 
 **Terms.** The upstream repository contains no license file. On 2026-09-19, XekriRedmane confirmed by email that its files may be used under the same license as `lode_runner_reveng`: the Creative Commons Attribution-ShareAlike 4.0 International License (CC BY-SA 4.0). The adapted files listed above are therefore licensed under CC BY-SA 4.0; see `LICENSE-CC-BY-SA-4.0.md`.
 
