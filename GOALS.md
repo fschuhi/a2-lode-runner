@@ -10,13 +10,13 @@
 
 ### Where we are
 
-The HTML research browser is published on GitHub Pages (<https://fschuhi.github.io/a2-lode-runner/>). The last `TODO-CONVERT` markers of the conversion from `main.nw` are gone, and Chapter 3 now carries the sprite catalog and the first annotations, the findings of `a2-hires-lab` (see `docs/main-nw/03-graphics.md`).
+The HTML research browser is published on GitHub Pages (<https://fschuhi.github.io/a2-lode-runner/>). Chapter 3 carries the sprite catalog and the `a2-hires-lab` findings. Chapter 6 now opens with a catalog of all 150 levels as the level editor shows them, generated from the disk tracks (`make level-images`, `make level-catalog`); the checks found three levels with six guards, of which the level draw routine drops the topmost (see `docs/main-nw/06-levels.md`).
 
 ### What's next
 
-- Level extractor: read the tracks in `reference/lode_runner_reveng/disk/`, extract the level data and display it as images as catalogue in Chapter 6 (like we did for the sprites catalogue in Chapter 3); the item is in `TODO.md`. 
-- Chapter 8 (Game play): define the bounded research task at the start of the session; the placeholder is in `TODO.md`. Graphics is deliberately parked.
-- Tell XekriRedmane about the site; the item is in `TODO.md`.
+- Chapter 8 (Game play), first slice: the game loop skeleton -- its phases, the order of the calls in each pass, and how level start, death and level completion hand over to each other; movement, digging and guards come in later slices. Define the bounded task at the start of the session; export the chapter with `make nwchapter CHAPTER=8`. The TODO experiments on `$96` and on reloading after death belong to this slice.
+- Tell XekriRedmane about the site, now with the level catalog; the item is in `TODO.md`.
+- `papple2`: DOS 3.3 disk access, in the `papple2` repo; the level extractor's output is the reference for what a loaded level must contain.
 
 ---
 
@@ -123,11 +123,11 @@ To keep the spec directly usable for an implementation (Godot or otherwise), it 
 
 `papple2` is a small Apple II emulator in Python, built for stopping, inspecting, rewinding, and scripting a running program. It could take the research closer to the running code:
 
-- letting the original routines load a level and reading the filled buffers, as a cross-check for the level extractor in `TODO.md`;
+- letting the original routines load a level and reading the filled buffers, as a cross-check for the level extractor (`scripts/level_extractor.py`);
 - stepping through a subroutine to confirm or refute a reading of the source;
 - counting cycles where relative timing matters for the Core Game Spec.
 
-Not started. Before it becomes a startable `TODO.md` item, it needs a strategy discussion: how to get the Lode Runner binary into `papple2`, which first question it should answer, and where the glue code lives.
+`papple2` boots Lode Runner's main program and runs it up to the point where the game reads level data from disk. The binary is `LODE_RUNNER.BIN`, extracted from the disk image with CiderPress II; the glue code lives in the `papple2` repo (`make boot-lode-runner`). Emulating the DOS 3.3 disk access is the next step there, and the first question for `papple2` is the level load: does the level it loads match the level extractor's output? Later, its execution data (basic blocks, call graphs) and the game loop as read from Chapter 8 can check each other.
 
 ---
 
