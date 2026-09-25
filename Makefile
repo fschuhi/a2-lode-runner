@@ -11,7 +11,7 @@ RESEARCH_DIR = $(ROOT_DIR)/research
 SETUP_STAMP = $(VENV_DIR)/.setup_stamp
 
 # --- Phony targets ---
-.PHONY: all setup test test-verbose nwchapter nwindex nwchunk latex-to-md nwhtml sprite-catalog level-ascii level-check clean showtree gentree patch filesdump filesdump-detailed help
+.PHONY: all setup test test-verbose nwchapter nwindex nwchunk latex-to-md nwhtml sprite-catalog level-ascii level-check level-images clean showtree gentree patch filesdump filesdump-detailed help
 
 # Default target runs 'setup'
 all: setup
@@ -69,6 +69,12 @@ level-ascii: $(SETUP_STAMP) ## print one disk level as an ASCII map (LEVEL=1 is 
 
 level-check: $(SETUP_STAMP) ## report counts and problems of all disk levels
 	$(RUN_WITH_PATH) python scripts/level_extractor.py check reference/lode_runner_reveng/disk
+
+level-images: $(SETUP_STAMP) ## render levels 1 to 150 as PNGs into images/levels/, with the level-editor sprites
+	$(RUN_WITH_PATH) python scripts/level_images.py \
+		$(ROOT_DIR)/reference/lode_runner_reveng/sprite_tables.tex \
+		$(ROOT_DIR)/reference/lode_runner_reveng/disk \
+		$(ROOT_DIR)/images/levels
 
 # --- Utility Targets ---
 

@@ -2,6 +2,9 @@
 black>=24.0
 pytest>=8.0
 
+# level_images.py
+Pillow
+
 # weave_html.py
 absl-py
 mistune
