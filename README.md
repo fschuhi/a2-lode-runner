@@ -4,7 +4,7 @@
 
 **Read it online:** <https://fschuhi.github.io/a2-lode-runner/>
 
-<p><img src="images/levels/level-012.png" alt="Level 12" width="280">&nbsp;&nbsp;&nbsp;&nbsp;<img src="images/levels/level-006.png" alt="Level 6" width="280"></p>
+<p><img src="images/levels/level-012.png" alt="Level 12" width="280">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="images/levels/level-006.png" alt="Level 6" width="280"></p>
 
 Full level catalogue: <https://fschuhi.github.io/a2-lode-runner/levels.html>
 
