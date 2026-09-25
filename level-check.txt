@@ -1,0 +1,266 @@
+. /Users/fschuhi/Projects/a2-lode-runner/.venv/bin/activate && PYTHONPATH=/Users/fschuhi/Projects/a2-lode-runner python scripts/level_extractor.py check reference/lode_runner_reveng/disk
+Level   1 (track $03, sector $0): 1 player, 3 guards, 6 gold, 4 exit-ladder cells
+Level   2 (track $03, sector $1): 1 player, 3 guards, 8 gold, 2 exit-ladder cells
+Level   3 (track $03, sector $2): 1 player, 3 guards, 7 gold, 3 exit-ladder cells
+Level   4 (track $03, sector $3): 1 player, 3 guards, 14 gold, 2 exit-ladder cells
+Level   5 (track $03, sector $4): 1 player, 4 guards, 7 gold, 8 exit-ladder cells
+Level   6 (track $03, sector $5): 1 player, 5 guards, 16 gold, 3 exit-ladder cells
+Level   7 (track $03, sector $6): 1 player, 4 guards, 8 gold, 3 exit-ladder cells
+Level   8 (track $03, sector $7): 1 player, 6 guards, 7 gold, 18 exit-ladder cells
+    problem: 6 guards, expected 1 to 5
+Level   9 (track $03, sector $8): 1 player, 5 guards, 4 gold, 2 exit-ladder cells
+Level  10 (track $03, sector $9): 1 player, 2 guards, 10 gold, 7 exit-ladder cells
+Level  11 (track $03, sector $A): 1 player, 4 guards, 15 gold, 1 exit-ladder cells
+Level  12 (track $03, sector $B): 1 player, 3 guards, 14 gold, 0 exit-ladder cells
+Level  13 (track $03, sector $C): 1 player, 4 guards, 13 gold, 14 exit-ladder cells
+Level  14 (track $03, sector $D): 1 player, 3 guards, 12 gold, 0 exit-ladder cells
+Level  15 (track $03, sector $E): 1 player, 4 guards, 23 gold, 11 exit-ladder cells
+Level  16 (track $03, sector $F): 1 player, 2 guards, 11 gold, 15 exit-ladder cells
+Level  17 (track $04, sector $0): 1 player, 3 guards, 10 gold, 6 exit-ladder cells
+Level  18 (track $04, sector $1): 1 player, 3 guards, 9 gold, 2 exit-ladder cells
+Level  19 (track $04, sector $2): 1 player, 4 guards, 18 gold, 0 exit-ladder cells
+Level  20 (track $04, sector $3): 1 player, 4 guards, 15 gold, 0 exit-ladder cells
+Level  21 (track $04, sector $4): 1 player, 3 guards, 13 gold, 5 exit-ladder cells
+Level  22 (track $04, sector $5): 1 player, 3 guards, 20 gold, 0 exit-ladder cells
+Level  23 (track $04, sector $6): 1 player, 3 guards, 16 gold, 4 exit-ladder cells
+Level  24 (track $04, sector $7): 1 player, 3 guards, 11 gold, 10 exit-ladder cells
+Level  25 (track $04, sector $8): 1 player, 2 guards, 10 gold, 4 exit-ladder cells
+Level  26 (track $04, sector $9): 1 player, 3 guards, 11 gold, 3 exit-ladder cells
+Level  27 (track $04, sector $A): 1 player, 4 guards, 20 gold, 16 exit-ladder cells
+Level  28 (track $04, sector $B): 1 player, 3 guards, 12 gold, 3 exit-ladder cells
+Level  29 (track $04, sector $C): 1 player, 3 guards, 12 gold, 0 exit-ladder cells
+Level  30 (track $04, sector $D): 1 player, 5 guards, 18 gold, 2 exit-ladder cells
+Level  31 (track $04, sector $E): 1 player, 3 guards, 7 gold, 5 exit-ladder cells
+Level  32 (track $04, sector $F): 1 player, 2 guards, 16 gold, 2 exit-ladder cells
+Level  33 (track $05, sector $0): 1 player, 3 guards, 9 gold, 7 exit-ladder cells
+Level  34 (track $05, sector $1): 1 player, 4 guards, 30 gold, 0 exit-ladder cells
+Level  35 (track $05, sector $2): 1 player, 4 guards, 24 gold, 6 exit-ladder cells
+Level  36 (track $05, sector $3): 1 player, 3 guards, 14 gold, 0 exit-ladder cells
+Level  37 (track $05, sector $4): 1 player, 3 guards, 10 gold, 3 exit-ladder cells
+Level  38 (track $05, sector $5): 1 player, 4 guards, 9 gold, 4 exit-ladder cells
+Level  39 (track $05, sector $6): 1 player, 3 guards, 9 gold, 4 exit-ladder cells
+Level  40 (track $05, sector $7): 1 player, 3 guards, 15 gold, 3 exit-ladder cells
+Level  41 (track $05, sector $8): 1 player, 5 guards, 29 gold, 0 exit-ladder cells
+Level  42 (track $05, sector $9): 1 player, 3 guards, 26 gold, 0 exit-ladder cells
+Level  43 (track $05, sector $A): 1 player, 4 guards, 11 gold, 2 exit-ladder cells
+Level  44 (track $05, sector $B): 1 player, 3 guards, 6 gold, 16 exit-ladder cells
+Level  45 (track $05, sector $C): 1 player, 3 guards, 14 gold, 4 exit-ladder cells
+Level  46 (track $05, sector $D): 1 player, 3 guards, 14 gold, 3 exit-ladder cells
+Level  47 (track $05, sector $E): 1 player, 2 guards, 14 gold, 15 exit-ladder cells
+Level  48 (track $05, sector $F): 1 player, 3 guards, 14 gold, 1 exit-ladder cells
+Level  49 (track $06, sector $0): 1 player, 3 guards, 23 gold, 0 exit-ladder cells
+Level  50 (track $06, sector $1): 1 player, 4 guards, 13 gold, 0 exit-ladder cells
+Level  51 (track $06, sector $2): 1 player, 3 guards, 13 gold, 5 exit-ladder cells
+Level  52 (track $06, sector $3): 1 player, 4 guards, 7 gold, 1 exit-ladder cells
+Level  53 (track $06, sector $4): 1 player, 4 guards, 24 gold, 1 exit-ladder cells
+Level  54 (track $06, sector $5): 1 player, 5 guards, 18 gold, 2 exit-ladder cells
+Level  55 (track $06, sector $6): 1 player, 3 guards, 29 gold, 7 exit-ladder cells
+Level  56 (track $06, sector $7): 1 player, 2 guards, 27 gold, 0 exit-ladder cells
+Level  57 (track $06, sector $8): 1 player, 3 guards, 27 gold, 14 exit-ladder cells
+Level  58 (track $06, sector $9): 1 player, 4 guards, 11 gold, 19 exit-ladder cells
+Level  59 (track $06, sector $A): 1 player, 4 guards, 24 gold, 0 exit-ladder cells
+Level  60 (track $06, sector $B): 1 player, 4 guards, 27 gold, 0 exit-ladder cells
+Level  61 (track $06, sector $C): 1 player, 3 guards, 16 gold, 2 exit-ladder cells
+Level  62 (track $06, sector $D): 1 player, 5 guards, 16 gold, 10 exit-ladder cells
+Level  63 (track $06, sector $E): 1 player, 4 guards, 7 gold, 2 exit-ladder cells
+Level  64 (track $06, sector $F): 1 player, 3 guards, 41 gold, 15 exit-ladder cells
+Level  65 (track $07, sector $0): 1 player, 4 guards, 8 gold, 9 exit-ladder cells
+Level  66 (track $07, sector $1): 1 player, 4 guards, 4 gold, 0 exit-ladder cells
+Level  67 (track $07, sector $2): 1 player, 3 guards, 17 gold, 7 exit-ladder cells
+Level  68 (track $07, sector $3): 1 player, 4 guards, 11 gold, 14 exit-ladder cells
+Level  69 (track $07, sector $4): 1 player, 4 guards, 14 gold, 0 exit-ladder cells
+Level  70 (track $07, sector $5): 1 player, 2 guards, 27 gold, 3 exit-ladder cells
+Level  71 (track $07, sector $6): 1 player, 4 guards, 26 gold, 3 exit-ladder cells
+Level  72 (track $07, sector $7): 1 player, 4 guards, 17 gold, 2 exit-ladder cells
+Level  73 (track $07, sector $8): 1 player, 4 guards, 16 gold, 30 exit-ladder cells
+Level  74 (track $07, sector $9): 1 player, 3 guards, 9 gold, 4 exit-ladder cells
+Level  75 (track $07, sector $A): 1 player, 4 guards, 11 gold, 0 exit-ladder cells
+Level  76 (track $07, sector $B): 1 player, 3 guards, 13 gold, 3 exit-ladder cells
+Level  77 (track $07, sector $C): 1 player, 2 guards, 31 gold, 0 exit-ladder cells
+Level  78 (track $07, sector $D): 1 player, 3 guards, 11 gold, 15 exit-ladder cells
+Level  79 (track $07, sector $E): 1 player, 3 guards, 12 gold, 8 exit-ladder cells
+Level  80 (track $07, sector $F): 1 player, 6 guards, 16 gold, 0 exit-ladder cells
+    problem: 6 guards, expected 1 to 5
+Level  81 (track $08, sector $0): 1 player, 2 guards, 32 gold, 2 exit-ladder cells
+Level  82 (track $08, sector $1): 1 player, 4 guards, 19 gold, 9 exit-ladder cells
+Level  83 (track $08, sector $2): 1 player, 3 guards, 19 gold, 15 exit-ladder cells
+Level  84 (track $08, sector $3): 1 player, 4 guards, 17 gold, 3 exit-ladder cells
+Level  85 (track $08, sector $4): 1 player, 3 guards, 17 gold, 0 exit-ladder cells
+Level  86 (track $08, sector $5): 1 player, 2 guards, 10 gold, 4 exit-ladder cells
+Level  87 (track $08, sector $6): 1 player, 3 guards, 52 gold, 2 exit-ladder cells
+Level  88 (track $08, sector $7): 1 player, 3 guards, 17 gold, 1 exit-ladder cells
+Level  89 (track $08, sector $8): 1 player, 4 guards, 33 gold, 48 exit-ladder cells
+Level  90 (track $08, sector $9): 1 player, 4 guards, 19 gold, 4 exit-ladder cells
+Level  91 (track $08, sector $A): 1 player, 3 guards, 9 gold, 3 exit-ladder cells
+Level  92 (track $08, sector $B): 1 player, 4 guards, 10 gold, 9 exit-ladder cells
+Level  93 (track $08, sector $C): 1 player, 4 guards, 10 gold, 4 exit-ladder cells
+Level  94 (track $08, sector $D): 1 player, 3 guards, 37 gold, 8 exit-ladder cells
+Level  95 (track $08, sector $E): 1 player, 3 guards, 12 gold, 3 exit-ladder cells
+Level  96 (track $08, sector $F): 1 player, 4 guards, 22 gold, 3 exit-ladder cells
+Level  97 (track $09, sector $0): 1 player, 2 guards, 24 gold, 0 exit-ladder cells
+Level  98 (track $09, sector $1): 1 player, 3 guards, 22 gold, 10 exit-ladder cells
+Level  99 (track $09, sector $2): 1 player, 5 guards, 12 gold, 0 exit-ladder cells
+Level 100 (track $09, sector $3): 1 player, 5 guards, 22 gold, 0 exit-ladder cells
+Level 101 (track $09, sector $4): 1 player, 4 guards, 23 gold, 0 exit-ladder cells
+Level 102 (track $09, sector $5): 1 player, 3 guards, 15 gold, 0 exit-ladder cells
+Level 103 (track $09, sector $6): 1 player, 5 guards, 18 gold, 4 exit-ladder cells
+Level 104 (track $09, sector $7): 1 player, 3 guards, 7 gold, 16 exit-ladder cells
+Level 105 (track $09, sector $8): 1 player, 4 guards, 22 gold, 15 exit-ladder cells
+Level 106 (track $09, sector $9): 1 player, 3 guards, 11 gold, 4 exit-ladder cells
+Level 107 (track $09, sector $A): 1 player, 2 guards, 40 gold, 0 exit-ladder cells
+Level 108 (track $09, sector $B): 1 player, 3 guards, 49 gold, 15 exit-ladder cells
+Level 109 (track $09, sector $C): 1 player, 4 guards, 15 gold, 0 exit-ladder cells
+Level 110 (track $09, sector $D): 1 player, 4 guards, 39 gold, 7 exit-ladder cells
+Level 111 (track $09, sector $E): 1 player, 3 guards, 18 gold, 0 exit-ladder cells
+Level 112 (track $09, sector $F): 1 player, 3 guards, 14 gold, 6 exit-ladder cells
+Level 113 (track $0A, sector $0): 1 player, 6 guards, 15 gold, 4 exit-ladder cells
+    problem: 6 guards, expected 1 to 5
+Level 114 (track $0A, sector $1): 1 player, 4 guards, 24 gold, 2 exit-ladder cells
+Level 115 (track $0A, sector $2): 1 player, 3 guards, 26 gold, 2 exit-ladder cells
+Level 116 (track $0A, sector $3): 1 player, 4 guards, 30 gold, 9 exit-ladder cells
+Level 117 (track $0A, sector $4): 1 player, 4 guards, 22 gold, 2 exit-ladder cells
+Level 118 (track $0A, sector $5): 1 player, 3 guards, 30 gold, 0 exit-ladder cells
+Level 119 (track $0A, sector $6): 1 player, 3 guards, 22 gold, 4 exit-ladder cells
+Level 120 (track $0A, sector $7): 1 player, 3 guards, 18 gold, 3 exit-ladder cells
+Level 121 (track $0A, sector $8): 1 player, 2 guards, 34 gold, 8 exit-ladder cells
+Level 122 (track $0A, sector $9): 1 player, 3 guards, 11 gold, 5 exit-ladder cells
+Level 123 (track $0A, sector $A): 1 player, 2 guards, 11 gold, 11 exit-ladder cells
+Level 124 (track $0A, sector $B): 1 player, 3 guards, 22 gold, 5 exit-ladder cells
+Level 125 (track $0A, sector $C): 1 player, 2 guards, 14 gold, 0 exit-ladder cells
+Level 126 (track $0A, sector $D): 1 player, 3 guards, 32 gold, 0 exit-ladder cells
+Level 127 (track $0A, sector $E): 1 player, 3 guards, 10 gold, 6 exit-ladder cells
+Level 128 (track $0A, sector $F): 1 player, 5 guards, 17 gold, 0 exit-ladder cells
+Level 129 (track $0B, sector $0): 1 player, 4 guards, 24 gold, 0 exit-ladder cells
+Level 130 (track $0B, sector $1): 1 player, 3 guards, 14 gold, 1 exit-ladder cells
+Level 131 (track $0B, sector $2): 1 player, 4 guards, 11 gold, 2 exit-ladder cells
+Level 132 (track $0B, sector $3): 1 player, 3 guards, 33 gold, 6 exit-ladder cells
+Level 133 (track $0B, sector $4): 1 player, 3 guards, 14 gold, 0 exit-ladder cells
+Level 134 (track $0B, sector $5): 1 player, 3 guards, 10 gold, 0 exit-ladder cells
+Level 135 (track $0B, sector $6): 1 player, 3 guards, 17 gold, 3 exit-ladder cells
+Level 136 (track $0B, sector $7): 1 player, 3 guards, 22 gold, 8 exit-ladder cells
+Level 137 (track $0B, sector $8): 1 player, 4 guards, 28 gold, 3 exit-ladder cells
+Level 138 (track $0B, sector $9): 1 player, 3 guards, 19 gold, 3 exit-ladder cells
+Level 139 (track $0B, sector $A): 1 player, 3 guards, 16 gold, 5 exit-ladder cells
+Level 140 (track $0B, sector $B): 1 player, 5 guards, 9 gold, 8 exit-ladder cells
+Level 141 (track $0B, sector $C): 1 player, 2 guards, 6 gold, 0 exit-ladder cells
+Level 142 (track $0B, sector $D): 1 player, 3 guards, 32 gold, 5 exit-ladder cells
+Level 143 (track $0B, sector $E): 1 player, 3 guards, 16 gold, 2 exit-ladder cells
+Level 144 (track $0B, sector $F): 1 player, 5 guards, 25 gold, 1 exit-ladder cells
+Level 145 (track $0C, sector $0): 1 player, 4 guards, 23 gold, 6 exit-ladder cells
+Level 146 (track $0C, sector $1): 1 player, 3 guards, 20 gold, 0 exit-ladder cells
+Level 147 (track $0C, sector $2): 1 player, 4 guards, 10 gold, 5 exit-ladder cells
+Level 148 (track $0C, sector $3): 1 player, 4 guards, 16 gold, 32 exit-ladder cells
+Level 149 (track $0C, sector $4): 1 player, 5 guards, 25 gold, 0 exit-ladder cells
+Level 150 (track $0C, sector $5): 1 player, 5 guards, 50 gold, 1 exit-ladder cells
+
+Beyond level 150, the rest of the last track (information only):
+Level 151 (track $0C, sector $6): not listed, reads as empty
+Level 152 (track $0C, sector $7): 1 player, 3 guards, 14 gold, 5 exit-ladder cells
+Level 153 (track $0C, sector $8): 1 player, 3 guards, 9 gold, 8 exit-ladder cells
+Level 154 (track $0C, sector $9): 1 player, 4 guards, 15 gold, 1 exit-ladder cells
+Level 155 (track $0C, sector $A): 16 player, 25 guards, 25 gold, 26 exit-ladder cells
+    note: 16 player starts, expected exactly 1
+    note: 25 guards, expected 1 to 5
+    note: row 0, column 18: invalid cell value 10 (byte 9, low nibble)
+    note: row 0, column 20: invalid cell value 11 (byte 10, low nibble)
+    note: row 0, column 22: invalid cell value 12 (byte 11, low nibble)
+    note: row 0, column 24: invalid cell value 13 (byte 12, low nibble)
+    note: row 0, column 26: invalid cell value 14 (byte 13, low nibble)
+    note: row 1, column 0: invalid cell value 15 (byte 14, low nibble)
+    note: row 1, column 22: invalid cell value 10 (byte 25, low nibble)
+    note: row 1, column 24: invalid cell value 11 (byte 26, low nibble)
+    note: row 1, column 26: invalid cell value 12 (byte 27, low nibble)
+    note: row 2, column 0: invalid cell value 13 (byte 28, low nibble)
+    note: row 2, column 2: invalid cell value 14 (byte 29, low nibble)
+    note: row 2, column 4: invalid cell value 15 (byte 30, low nibble)
+    note: row 2, column 26: invalid cell value 10 (byte 41, low nibble)
+    note: row 3, column 0: invalid cell value 11 (byte 42, low nibble)
+    note: row 3, column 2: invalid cell value 12 (byte 43, low nibble)
+    note: row 3, column 4: invalid cell value 13 (byte 44, low nibble)
+    note: row 3, column 6: invalid cell value 14 (byte 45, low nibble)
+    note: row 3, column 8: invalid cell value 15 (byte 46, low nibble)
+    note: row 4, column 2: invalid cell value 10 (byte 57, low nibble)
+    note: row 4, column 4: invalid cell value 11 (byte 58, low nibble)
+    note: row 4, column 6: invalid cell value 12 (byte 59, low nibble)
+    note: row 4, column 8: invalid cell value 13 (byte 60, low nibble)
+    note: row 4, column 10: invalid cell value 14 (byte 61, low nibble)
+    note: row 4, column 12: invalid cell value 15 (byte 62, low nibble)
+    note: row 5, column 6: invalid cell value 10 (byte 73, low nibble)
+    note: row 5, column 8: invalid cell value 11 (byte 74, low nibble)
+    note: row 5, column 10: invalid cell value 12 (byte 75, low nibble)
+    note: row 5, column 12: invalid cell value 13 (byte 76, low nibble)
+    note: row 5, column 14: invalid cell value 14 (byte 77, low nibble)
+    note: row 5, column 16: invalid cell value 15 (byte 78, low nibble)
+    note: row 6, column 10: invalid cell value 10 (byte 89, low nibble)
+    note: row 6, column 12: invalid cell value 11 (byte 90, low nibble)
+    note: row 6, column 14: invalid cell value 12 (byte 91, low nibble)
+    note: row 6, column 16: invalid cell value 13 (byte 92, low nibble)
+    note: row 6, column 18: invalid cell value 14 (byte 93, low nibble)
+    note: row 6, column 20: invalid cell value 15 (byte 94, low nibble)
+    note: row 7, column 14: invalid cell value 10 (byte 105, low nibble)
+    note: row 7, column 16: invalid cell value 11 (byte 106, low nibble)
+    note: row 7, column 18: invalid cell value 12 (byte 107, low nibble)
+    note: row 7, column 20: invalid cell value 13 (byte 108, low nibble)
+    note: row 7, column 22: invalid cell value 14 (byte 109, low nibble)
+    note: row 7, column 24: invalid cell value 15 (byte 110, low nibble)
+    note: row 8, column 18: invalid cell value 10 (byte 121, low nibble)
+    note: row 8, column 20: invalid cell value 11 (byte 122, low nibble)
+    note: row 8, column 22: invalid cell value 12 (byte 123, low nibble)
+    note: row 8, column 24: invalid cell value 13 (byte 124, low nibble)
+    note: row 8, column 26: invalid cell value 14 (byte 125, low nibble)
+    note: row 9, column 0: invalid cell value 15 (byte 126, low nibble)
+    note: row 9, column 22: invalid cell value 10 (byte 137, low nibble)
+    note: row 9, column 24: invalid cell value 11 (byte 138, low nibble)
+    note: row 9, column 26: invalid cell value 12 (byte 139, low nibble)
+    note: row 10, column 0: invalid cell value 13 (byte 140, low nibble)
+    note: row 10, column 2: invalid cell value 14 (byte 141, low nibble)
+    note: row 10, column 4: invalid cell value 15 (byte 142, low nibble)
+Level 156 (track $0C, sector $B): not listed, reads as empty
+Level 157 (track $0C, sector $C): not listed, reads as empty
+Level 158 (track $0C, sector $D): not listed, reads as empty
+Level 159 (track $0C, sector $E): not listed, reads as empty
+Level 160 (track $0C, sector $F): 7 player, 2 guards, 4 gold, 3 exit-ladder cells
+    note: 7 player starts, expected exactly 1
+    note: row 0, column 0: invalid cell value 13 (byte 0, low nibble)
+    note: row 0, column 1: invalid cell value 12 (byte 0, high nibble)
+    note: row 0, column 3: invalid cell value 12 (byte 1, high nibble)
+    note: row 0, column 5: invalid cell value 12 (byte 2, high nibble)
+    note: row 0, column 16: invalid cell value 13 (byte 8, low nibble)
+    note: row 0, column 17: invalid cell value 12 (byte 8, high nibble)
+    note: row 0, column 19: invalid cell value 12 (byte 9, high nibble)
+    note: row 0, column 21: invalid cell value 12 (byte 10, high nibble)
+    note: row 1, column 4: invalid cell value 13 (byte 16, low nibble)
+    note: row 1, column 5: invalid cell value 12 (byte 16, high nibble)
+    note: row 1, column 7: invalid cell value 12 (byte 17, high nibble)
+    note: row 1, column 9: invalid cell value 12 (byte 18, high nibble)
+    note: row 1, column 21: invalid cell value 12 (byte 24, high nibble)
+    note: row 1, column 22: invalid cell value 12 (byte 25, low nibble)
+    note: row 1, column 23: invalid cell value 12 (byte 25, high nibble)
+    note: row 1, column 25: invalid cell value 12 (byte 26, high nibble)
+    note: row 2, column 9: invalid cell value 12 (byte 32, high nibble)
+    note: row 2, column 10: invalid cell value 12 (byte 33, low nibble)
+    note: row 2, column 11: invalid cell value 12 (byte 33, high nibble)
+    note: row 2, column 13: invalid cell value 12 (byte 34, high nibble)
+    note: row 2, column 25: invalid cell value 12 (byte 40, high nibble)
+    note: row 2, column 26: invalid cell value 12 (byte 41, low nibble)
+    note: row 2, column 27: invalid cell value 12 (byte 41, high nibble)
+    note: row 3, column 1: invalid cell value 12 (byte 42, high nibble)
+    note: row 3, column 13: invalid cell value 12 (byte 48, high nibble)
+    note: row 3, column 14: invalid cell value 12 (byte 49, low nibble)
+    note: row 3, column 15: invalid cell value 12 (byte 49, high nibble)
+    note: row 3, column 17: invalid cell value 12 (byte 50, high nibble)
+    note: row 4, column 0: invalid cell value 13 (byte 56, low nibble)
+    note: row 4, column 1: invalid cell value 12 (byte 56, high nibble)
+    note: row 4, column 3: invalid cell value 12 (byte 57, high nibble)
+    note: row 4, column 5: invalid cell value 12 (byte 58, high nibble)
+    note: row 4, column 17: invalid cell value 13 (byte 64, high nibble)
+    note: row 4, column 18: invalid cell value 14 (byte 65, low nibble)
+    note: row 4, column 19: invalid cell value 10 (byte 65, high nibble)
+    note: row 4, column 21: invalid cell value 12 (byte 66, high nibble)
+    note: row 5, column 5: invalid cell value 13 (byte 72, high nibble)
+    note: row 5, column 6: invalid cell value 10 (byte 73, low nibble)
+    note: row 5, column 7: invalid cell value 12 (byte 73, high nibble)
+    note: row 5, column 8: invalid cell value 12 (byte 74, low nibble)
+    note: row 5, column 9: invalid cell value 12 (byte 74, high nibble)
+
+Problems in levels 1 to 150: 3

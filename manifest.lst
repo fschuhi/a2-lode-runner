@@ -99,7 +99,23 @@ requirements.txt
 #reference/lode_runner_reveng/main.pdf
 
 # Sprite catalog, source of `make sprite-catalog`
-#reference/lode_runner_reveng/sprite_tables.tex
+reference/lode_runner_reveng/sprite_tables.tex
+
+# Disk data, for levels
+reference/lode_runner_reveng/disk/track_0a.asm
+reference/lode_runner_reveng/disk/track_0b.asm
+reference/lode_runner_reveng/disk/track_0c.asm
+reference/lode_runner_reveng/disk/track_00.asm
+reference/lode_runner_reveng/disk/track_01.asm
+reference/lode_runner_reveng/disk/track_02.asm
+reference/lode_runner_reveng/disk/track_03.asm
+reference/lode_runner_reveng/disk/track_04.asm
+reference/lode_runner_reveng/disk/track_05.asm
+reference/lode_runner_reveng/disk/track_06.asm
+reference/lode_runner_reveng/disk/track_07.asm
+reference/lode_runner_reveng/disk/track_08.asm
+reference/lode_runner_reveng/disk/track_09.asm
+reference/lode_runner_reveng/disk/track_11.asm
 
 ### -- Research ---
 # Unedited markdown, generated with `make latex-to-md`, generated once
