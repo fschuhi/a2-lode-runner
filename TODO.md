@@ -28,7 +28,9 @@
 
 ## Tools
 
-- **Level extractor**: a Python script under `scripts/` that reads `data/Lode_Runner_1983_Broderbund_cr_Reset_Vector.do` and decodes the 150 disk levels (track 3 onwards, one 256-byte sector per level) using the level-data contract in `docs/main-nw/06-levels.md`. Development track: first a stable one-character ASCII rendering suitable for tests and diffs; then a controlled JSON file of all levels, in the level format the Core Game Spec will use; later a static HTML catalog with true sprite graphics. Not needed by any other item -- this is a motivation track. It has no dependency on the Chapter 8 research and can be picked up in any session. `papple2` could later cross-check the decoding (see `GOALS.md`). _Needs investigation_: whether the `.do` image uses the plain sector-offset formula `(track * 16 + sector) * 256` for all relevant tracks (`06-levels.md`, open question 6).
+- **Level extractor**: a Python script under `scripts/` that reads accesses the tracks in `reference/lode_runner_reveng/disk/` using the level-data contract in `docs/main-nw/06-levels.md` and generates HTML tables like the sprites in the HTML documentation (Chapter 3). The visual catalogue of levels should be added afterwards as annotations to Chapter 6 (check if adding to `06-levels.md` would be helpful.) `papple2` will also access the disk data and emulate DOS 3.3. Note that adding the visual sprite catalogue to the literate-source consumed quite a bit of space -- are there alternatives which result in slimmer static HTML pages? 
+
+- **Level *.do investigation**: access `data/Lode_Runner_1983_Broderbund_cr_Reset_Vector.do` and decode the 150 disk levels (track 3 onwards, one 256-byte sector per level). Check whether the `.do` image uses the plain sector-offset formula `(track * 16 + sector) * 256` for all relevant tracks (`06-levels.md`, open question 6).
 
 - **Final-LF check** (quick win): a `make` target, for example `make eol-check`, that lists every tracked text file that doesn't end with a line break. Files copied from a chat preview lose their final LF; this catches them before a commit.
 

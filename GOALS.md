@@ -14,6 +14,7 @@ The HTML research browser is published on GitHub Pages (<https://fschuhi.github.
 
 ### What's next
 
+- Level extractor: read the tracks in `reference/lode_runner_reveng/disk/`, extract the level data and display it as images as catalogue in Chapter 6 (like we did for the sprites catalogue in Chapter 3); the item is in `TODO.md`. 
 - Chapter 8 (Game play): define the bounded research task at the start of the session; the placeholder is in `TODO.md`. Graphics is deliberately parked.
 - Tell XekriRedmane about the site; the item is in `TODO.md`.
 
