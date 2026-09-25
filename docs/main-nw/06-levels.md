@@ -18,7 +18,7 @@ This document covers:
 - important shared state associated with level loading;
 - open questions that do not block extraction.
 
-The accompanying extraction utility is defined as a startable item in `TODO.md` under "Tools" ("Level extractor").
+The extraction utility is `scripts/level_extractor.py`; `scripts/level_images.py` and `scripts/level_catalog.py` turn its output into the level catalog at the start of Chapter 6 in the HTML research browser. See "Level extractor and catalog" below for how they work and what they found.
 
 ## Sources and evidence
 
@@ -283,11 +283,13 @@ For example, sector `$0` is the stored data for player-facing level 1. Once its 
 
 The track files are convenient human-readable evidence and can be used to validate an extractor.
 
-They do not need to be the extractor's primary input. Reading the original `.do` image directly may be simpler and avoids writing an assembler-source parser.
+They are the extractor's input. They are committed to the repository, so the GitHub Pages build can regenerate the level catalog, while the `.do` image is local only. The parser needed is small: a sector label, followed by `HEX` lines.
+
+The file header of `track_0c.asm` names a second kind of content: "levels 144-149 and leftover mastering data". See "Level extractor and catalog" below.
 
 ## Direct disk-image extraction
 
-The candidate primary source for an extraction utility is:
+Reading the `.do` image directly is a separate, lower-priority investigation (`TODO.md`). Its input would be:
 
 ```text
 data/Lode_Runner_1983_Broderbund_cr_Reset_Vector.do
@@ -309,7 +311,7 @@ offset = (track * 16 + sector) * 256
 
 The extractor must not rely on this formula without validation. It should first compare the bytes obtained for track `$03`, sector `$0` with the bytes listed under the corresponding label in `disk/track_03.asm`.
 
-Once this comparison succeeds, the `.do` image can be treated as the authoritative extraction input and the text track files as readable verification fixtures.
+Once this comparison succeeds, the `.do` image and the track files can be checked against each other; the output of `scripts/level_extractor.py` is the reference.
 
 If the comparison fails, the script must investigate sector ordering rather than silently producing levels from the wrong offsets.
 
@@ -490,9 +492,11 @@ Initialization must:
 2. create a guard state for that position;
 3. remove the marker from the mutable terrain representation.
 
-There may be multiple guards.
+There may be multiple guards, but the game places at most five. Levels 8, 80 and 113 have six guard markers on the disk, one more than the level editor allows (Manual). For every guard marker, `DRAW_LEVEL_PAGE2` compares `GUARD_COUNT` with 5 (`CPX #5`) and, once five guards are placed, draws an empty cell instead (`BCS .remove_sprite`) (Code-confirmed).
 
-The order in which guard markers are encountered may be significant if it determines guard numbering or update order. A portable extractor should therefore report guard starts in row-major order:
+The routine scans the board backwards: from row 15 up to row 0, and in each row from column 27 to column 0. The guard it removes is therefore the topmost one, or the leftmost one if the topmost row has several. In level 8 that is the guard at row 2, column 5 (Observed in AppleWin, and on the in-game screenshots of the level collection at vgmaps.com). The same order decides the guards' slots: the first guard met, the one nearest the bottom-right corner, is stored at index 1 of `GUARD_LOCS_ROW` and `GUARD_LOCS_COL` (Code-confirmed). Whether the slot order matters during play belongs to Chapter 9.
+
+A portable implementation that wants the original behavior must apply the same limit in the same scan order. The order in which guard markers are encountered may also matter if it determines guard numbering or update order. A portable extractor should therefore report guard starts in a fixed, documented order, for example row-major:
 
 ```text
 top to bottom, then left to right
@@ -637,7 +641,7 @@ row 2, column 5: invalid cell value 12
 
 ## Stylized ASCII representation
 
-For inspection and testing, a decoded level can be rendered as a fixed-width ASCII or Unicode map.
+For inspection and testing, a decoded level can be rendered as a fixed-width ASCII or Unicode map. `make level-ascii LEVEL=N` prints this mode, with a thin frame so that empty cells at the edges stay visible.
 
 A simple one-character mapping is:
 
@@ -727,18 +731,45 @@ The Noweb source introduces another layer of organization:
 
 These concepts belong in the general Noweb explanation in `index.md`, but they are particularly visible in the construction of `LOAD_LEVEL`.
 
+## Level extractor and catalog
+
+Three scripts in `scripts/` implement the contract of this document, each with its own tests:
+
+- `level_extractor.py` parses the track files and decodes a level. `make level-ascii LEVEL=N` prints one level as an ASCII map. `make level-check` prints one line per level with its numbers of player, guard, gold and exit-ladder cells, followed by the problems it finds: a player count other than one, a guard count outside one to five, and values from 10 to 15 with their byte and nibble.
+- `level_images.py` draws each level as a PNG in `images/levels/` (`make level-images`). Each cell is drawn with the sprite whose number is its stored value, so the image shows the level as the level editor shows it: trapdoors (sprite 5) and hidden exit ladders (sprite 6) have shapes of their own.
+- `level_catalog.py` writes linked thumbnails of all 150 levels into Chapter 6 of `research/main.nw-edited.md`, between the markers `<!-- level-catalog: begin -->` and `<!-- level-catalog: end -->` (`make level-catalog`).
+
+Findings:
+
+- Every one of the 150 levels has exactly one player marker and only values `0` through `9` (checked with `make level-check`).
+- Levels 8, 80 and 113 have six guards, one more than the level editor allows; see "Guard starts".
+- After level 150, track `$0C` holds more sectors, which its file header calls "leftover mastering data"; see the table below. `make level-check` lists them separately, for information only. Where they come from is open.
+- Sprites 0 to 9 use only the first 10 of their 14 pixel columns; the rest is black (checked against `sprite_tables.tex`). A cell is therefore 10 by 11 pixels, and a level 280 by 176, the full width of the hi-res screen.
+- XekriRedmane coloured each sprite on its own, which leaves a black pixel column where two blue cells meet, for example two bricks side by side. On the Apple II a blue or orange area lights only every other pixel, and the TV fills the pixels in between. The images therefore fill a single black pixel between two blue or two orange pixels (Inferred from the colour model in Chapter 3; not measured).
+
+The rest of track `$0C`, read as further levels:
+
+| Level slot | Track `$0C`, sector | Content |
+|---:|---|---|
+| 151 | `$6` | Not listed in the track file, so empty |
+| 152 to 154 | `$7` to `$9` | Plausible levels: one player, three or four guards |
+| 155 | `$A` | Not a level: values 10 to 15 in an ascending pattern, 16 player and 25 guard markers |
+| 156 to 159 | `$B` to `$E` | Not listed, so empty |
+| 160 | `$F` | Not a level: garbled, 7 player markers and many invalid values |
+
 ## Open questions
 
 The following questions remain open but do not block extraction:
 
 1. What is the original purpose of the final 32 bytes in each level sector?
-2. ~~Do all shipped levels contain exactly one player marker?~~ Answered by the manual: exactly one player, one to five guards, enforced by the level editor. The extractor still counts and reports both (see "Player start").
-3. Is guard scan order observably significant beyond initialization?
-4. How many normal disk levels should be included in the controlled output?
+2. ~~Do all shipped levels contain exactly one player marker?~~ Answered by the manual: exactly one player, one to five guards, enforced by the level editor. The extractor still counts and reports both (see "Player start"). The shipped levels all have exactly one player; three of them have six guards (see "Guard starts").
+3. Is guard scan order observably significant beyond initialization? At initialization it is: it decides which guard is removed from a level with six (see "Guard starts"). Beyond initialization it is still open (Chapter 9).
+4. ~~How many normal disk levels should be included in the controlled output?~~ 150: tracks `$03` to `$0B`, and sectors `$0` to `$5` of track `$0C`. The rest of track `$0C` is leftover data (see "Level extractor and catalog"); what it was for is open.
 5. Should embedded attract-mode levels be extracted into a separate file?
 6. Does the `.do` image use the direct sector offset expected for every relevant track, or is additional sector-order handling required?
-7. What exact file format and repository path should be used for the generated controlled level data?
-8. Should traps be displayed identically to bricks in the default visualizer, with an optional diagnostic mode that distinguishes them?
+7. What exact file format and repository path should be used for the generated controlled level data? Partly answered: the level images are in `images/levels/`. A data format for the Core Game Spec, such as JSON, is still open.
+8. ~~Should traps be displayed identically to bricks in the default visualizer, with an optional diagnostic mode that distinguishes them?~~ The level images use the level editor's sprites, which give trapdoors (sprite 5) and hidden exit ladders (sprite 6) shapes of their own.
+9. Does dying reload the level from disk, or is it rebuilt from the copy in memory? See `TODO.md`.
 
 These should be answered through extraction validation, targeted source reading, or emulator observation rather than by requiring a complete understanding of the disk subsystem.
 
@@ -758,5 +789,6 @@ The essential level contract is compact:
 10. Value `6` is an initially hidden exit-ladder marker.
 11. Runtime state should be constructed from, but kept separate from, the immutable decoded source board.
 12. The embedded attract-mode levels are distinct from the correspondingly numbered disk levels.
+13. The game places at most five guards; a sixth guard marker is removed, and because the board is scanned backwards, it is the topmost one.
 
 These facts are sufficient to design a Python extraction utility, produce a controlled file containing the levels, render diagnostic ASCII maps, and later initialize equivalent level state in another implementation.

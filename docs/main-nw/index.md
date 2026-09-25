@@ -62,7 +62,7 @@ This index does **not** own:
 - detailed game-mechanics findings;
 - an engine-neutral behavioral specification;
 - a Godot implementation plan; or
-- the level extractor (see `TODO.md`).
+- the level extractor and catalog (see [`06-levels.md`](06-levels.md)).
 
 Those belong in dedicated research artifacts once supported by evidence.
 
@@ -340,7 +340,7 @@ Status meanings:
 | 3 | Apple II Graphics | Partial | See [`03-graphics.md`](03-graphics.md). Sections 3.1 to 3.3 carry annotations with the `a2-hires-lab` findings: sprite colours, the sprite table layout, and the two-stage shift lookup with a direct 1,792-byte alternative. Section 3.4 (memory-mapped graphics) and the rest are not researched. Apple II implementation research, not an input to the Core Game Spec; not the next priority. |
 | 4 | Sound | Not started | Self-contained sound subsystem. It can be deferred until core gameplay behavior is understood. |
 | 5 | Input | Partial | Level-number entry and input-related state were encountered while tracing level selection. General joystick, keyboard, and control behavior still requires focused study. |
-| 6 | Levels | Complete | See [`06-levels.md`](06-levels.md). Covers board dimensions, packed sector data, cell values, disk-level addressing, attract-mode data, decoding, initialization markers, hidden ladders, validation, and the proposed portable level contract. |
+| 6 | Levels | Complete | See [`06-levels.md`](06-levels.md). Covers board dimensions, packed sector data, cell values, disk-level addressing, attract-mode data, decoding, initialization markers, hidden ladders, validation, and the proposed portable level contract. The level catalog, all 150 levels as the level editor shows them, is at the start of Chapter 6 in the HTML research browser. |
 | 7 | High scores | Deferred | Important for eventual product completeness but largely independent of the core level and gameplay model. |
 | 8 | Game play | **Queued next** | Recommended next focused chapter. It contains the central game loop and player-facing mechanics that consume the level state documented in Chapter 6. |
 | 9 | Guard AI | Queued after Chapter 8 | Depends on the board, movement, collision, timing, and actor-state concepts established by the level and gameplay investigations. |
@@ -493,4 +493,4 @@ The token cost of uploading `main.nw` for every research session justified a sma
 
 ## Level extractor
 
-The 150 shipped levels are a research corpus in their own right: individual layouts expose mechanics edge cases that are hard to find by ordinary play. The extractor that decodes them from the disk image is defined as a startable item in `TODO.md` under "Tools"; its decoding contract is in [`06-levels.md`](06-levels.md).
+The 150 shipped levels are a research corpus in their own right: individual layouts expose mechanics edge cases that are hard to find by ordinary play. `scripts/level_extractor.py` decodes them from the track files in `reference/lode_runner_reveng/disk/`; `scripts/level_images.py` and `scripts/level_catalog.py` show them as a catalog at the start of Chapter 6 in the HTML research browser (<https://fschuhi.github.io/a2-lode-runner/levels.html>). The decoding contract and the findings, among them the three levels with six guards, are in [`06-levels.md`](06-levels.md).
