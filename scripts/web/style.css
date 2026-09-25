@@ -117,6 +117,11 @@ table.spritegrid td.o { background: #FF8000; }
 .sprite-catalog figcaption { font-size: .8rem; color: var(--muted); text-align: center; margin-bottom: .25rem; }
 .sprite-catalog table.spritegrid { margin: 0; }
 .sprite-catalog table.spritegrid td { width: 10px; height: 10px; }
+/* level catalog (Chapter 6): linked thumbnails of all levels that flow across the page */
+.level-catalog { display: flex; flex-wrap: wrap; gap: .75rem; margin: 1rem 0; }
+.level-catalog figure.level { margin: 0; }
+.level-catalog figcaption { font-size: .8rem; color: var(--muted); text-align: center; margin-bottom: .25rem; }
+.level-catalog img { display: block; image-rendering: pixelated; }
 pre.verbatim { background: var(--code-bg); border: 1px solid var(--line); border-radius: 8px;
   padding: .8rem 1rem; overflow: auto; font-size: .88rem; }
 .mermaid { margin: 1.2rem 0; text-align: center; }

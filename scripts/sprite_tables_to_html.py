@@ -123,15 +123,24 @@ def render_catalog(sprites: dict[int, list[str]]) -> str:
     return "\n".join(lines)
 
 
-def replace_between_markers(markdown: str, html: str) -> str:
-    """Put `html` between the two marker lines, replacing what was there."""
+def replace_between_markers(
+    markdown: str,
+    html: str,
+    begin_marker: str = BEGIN_MARKER,
+    end_marker: str = END_MARKER,
+) -> str:
+    """Put `html` between the two marker lines, replacing what was there.
+
+    The markers default to the sprite catalog's; `level_catalog.py` passes
+    its own.
+    """
     lines = markdown.split("\n")
-    begin = [i for i, line in enumerate(lines) if line.strip() == BEGIN_MARKER]
-    end = [i for i, line in enumerate(lines) if line.strip() == END_MARKER]
+    begin = [i for i, line in enumerate(lines) if line.strip() == begin_marker]
+    end = [i for i, line in enumerate(lines) if line.strip() == end_marker]
     if len(begin) != 1 or len(end) != 1 or begin[0] > end[0]:
         raise ValueError(
-            f"Expected exactly one {BEGIN_MARKER!r} line followed by "
-            f"exactly one {END_MARKER!r} line"
+            f"Expected exactly one {begin_marker!r} line followed by "
+            f"exactly one {end_marker!r} line"
         )
     new_lines = lines[: begin[0] + 1] + html.split("\n") + lines[end[0] :]
     return "\n".join(new_lines)

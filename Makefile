@@ -11,7 +11,7 @@ RESEARCH_DIR = $(ROOT_DIR)/research
 SETUP_STAMP = $(VENV_DIR)/.setup_stamp
 
 # --- Phony targets ---
-.PHONY: all setup test test-verbose nwchapter nwindex nwchunk latex-to-md nwhtml sprite-catalog level-ascii level-check level-images clean showtree gentree patch filesdump filesdump-detailed help
+.PHONY: all setup test test-verbose nwchapter nwindex nwchunk latex-to-md nwhtml sprite-catalog level-ascii level-check level-images level-catalog clean showtree gentree patch filesdump filesdump-detailed help
 
 # Default target runs 'setup'
 all: setup
@@ -75,6 +75,11 @@ level-images: $(SETUP_STAMP) ## render levels 1 to 150 as PNGs into images/level
 		$(ROOT_DIR)/reference/lode_runner_reveng/sprite_tables.tex \
 		$(ROOT_DIR)/reference/lode_runner_reveng/disk \
 		$(ROOT_DIR)/images/levels
+
+level-catalog: $(SETUP_STAMP) ## write the level catalog (images/levels/) into main.nw-edited.md (between its markers)
+	$(RUN_WITH_PATH) python scripts/level_catalog.py \
+		$(ROOT_DIR)/images/levels \
+		$(RESEARCH_DIR)/main.nw-edited.md
 
 # --- Utility Targets ---
 
