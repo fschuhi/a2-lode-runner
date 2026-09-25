@@ -88,10 +88,11 @@ def fill_colour_gaps(pixels: bytearray, width: int) -> bytearray:
     On the Apple II a blue or orange area lights only every other pixel, and
     the TV fills the pixels in between with the same colour. Inside a sprite
     XekriRedmane already coloured them: sprites 0 to 9 contain no "colour,
-    black, same colour" (a test checks this). At a sprite's right edge the neighbour belongs to the next cell, so that
-    pixel stayed black. This fills it once the whole board is drawn. White
-    is two lit pixels side by side, so the reasoning does not hold for it.
-    Inferred from the colour model in Chapter 3, not measured.
+    black, same colour" (a test checks this). At a sprite's right edge the
+    neighbour belongs to the next cell, so that pixel stayed black. This fills
+    it once the whole board is drawn. White is two lit pixels side by side,
+    so the reasoning does not hold for it. Inferred from the colour model in
+    Chapter 3, not measured.
     """
     black = PALETTE_INDEX["k"]
     filled = bytearray(pixels)  # read from the original, so fills never chain
