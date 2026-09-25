@@ -31,7 +31,6 @@ HISTORY.md
 #docs/reports/literate-migration/phase-1-converter-review.md
 
 ### --- Docs ---
-
 ## main.nw
 # Index of the chapter-by-chapter research
 docs/main-nw/index.md
@@ -63,17 +62,28 @@ requirements.txt
 # sprite_tables.tex -> HTML sprite catalog (`make sprite-catalog`)
 #scripts/sprite_tables_to_html.py
 
+# Chapter 6: Levels
+scripts/level_catalog.py
+scripts/level_extractor.py
+scripts/level_images.py
+
 # Latex -> Markdown -> HTML
 #scripts/latex_to_md.py
-#scripts/weave_html.py
+scripts/weave_html.py
 #scripts/weave_lode_runner.py
 #scripts/web/app.js
+#scripts/web/style.css
+
+# XekriRedmane
 #scripts/PROVENANCE.md
 
 ### --- Data ---
 #data/Lode_Runner_1983_Broderbund_cr_Reset_Vector.do
 
 ### --- Tests ---
+#tests/test_level_catalog.py
+#tests/test_level_extractor.py
+#tests/test_level_images.py
 #tests/fixtures/mini.nw
 #tests/test_nwtool.py
 #tests/test_sprite_tables_to_html.py
@@ -99,23 +109,43 @@ requirements.txt
 #reference/lode_runner_reveng/main.pdf
 
 # Sprite catalog, source of `make sprite-catalog`
-reference/lode_runner_reveng/sprite_tables.tex
+#reference/lode_runner_reveng/sprite_tables.tex
 
 # Disk data, for levels
-reference/lode_runner_reveng/disk/track_0a.asm
-reference/lode_runner_reveng/disk/track_0b.asm
-reference/lode_runner_reveng/disk/track_0c.asm
+#reference/lode_runner_reveng/disk/track_0a.asm
+#reference/lode_runner_reveng/disk/track_0b.asm
+#reference/lode_runner_reveng/disk/track_0c.asm
 reference/lode_runner_reveng/disk/track_00.asm
-reference/lode_runner_reveng/disk/track_01.asm
-reference/lode_runner_reveng/disk/track_02.asm
-reference/lode_runner_reveng/disk/track_03.asm
-reference/lode_runner_reveng/disk/track_04.asm
-reference/lode_runner_reveng/disk/track_05.asm
-reference/lode_runner_reveng/disk/track_06.asm
-reference/lode_runner_reveng/disk/track_07.asm
-reference/lode_runner_reveng/disk/track_08.asm
-reference/lode_runner_reveng/disk/track_09.asm
-reference/lode_runner_reveng/disk/track_11.asm
+#reference/lode_runner_reveng/disk/track_01.asm
+#reference/lode_runner_reveng/disk/track_02.asm
+#reference/lode_runner_reveng/disk/track_03.asm
+#reference/lode_runner_reveng/disk/track_04.asm
+#reference/lode_runner_reveng/disk/track_05.asm
+#reference/lode_runner_reveng/disk/track_06.asm
+#reference/lode_runner_reveng/disk/track_07.asm
+#reference/lode_runner_reveng/disk/track_08.asm
+#reference/lode_runner_reveng/disk/track_09.asm
+#reference/lode_runner_reveng/disk/track_11.asm
+
+### -- Images ---
+## 150 Game levels
+#levels/level-001.png
+#levels/level-001.png
+#...
+#levels/level-150.png
+
+## Used in `research/main.nw-edited.md` -- original by XekriRedmane
+#images/digging.jpg
+#images/iris.jpg
+#images/lode_runner_game_loopg.jpg
+#images/read_joystick_for_command.jpg
+#images/screen.jpg
+#images/shift-lookup-tables.png
+#images/shift-sprite-row.png
+#images/title-screen.jpg
+
+## Used in `research/main.nw-edited.md` -- added annotations
+#images/player_orange_blue.jpg
 
 ### -- Research ---
 # Unedited markdown, generated with `make latex-to-md`, generated once
