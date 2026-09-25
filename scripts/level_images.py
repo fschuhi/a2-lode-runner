@@ -14,6 +14,11 @@ columns, the rest is black. A board cell is therefore 10 x 11 pixels, and a
 level 280 x 176 pixels: the width of the Apple II hi-res screen, and 16 of its
 cell rows. The images use square pixels, enlarged by `--scale` (default 2).
 
+XekriRedmane coloured each sprite on its own. Where two blue cells meet, as two
+bricks side by side do, that leaves a single black pixel column between blue
+pixels, which the TV fills with blue. `fill_colour_gaps` does the same, so the
+bricks join up as in the game.
+
 Usage:
     python scripts/level_images.py SPRITE_TABLES_TEX TRACK_DIR OUTPUT_DIR [--scale N]
 
@@ -50,6 +55,9 @@ PALETTE = {
 }
 PALETTE_INDEX = {css: index for index, css in enumerate(PALETTE)}
 
+# Colours whose single-pixel black gaps the TV fills (see `fill_colour_gaps`).
+GAP_FILL_COLOURS = {PALETTE_INDEX["b"], PALETTE_INDEX["o"]}
+
 
 def crop_sprite(number: int, rows: list[str]) -> list[str]:
     """Cut a sprite's rows to the width of a board cell.
@@ -74,6 +82,27 @@ def level_sprites(tex: str) -> dict[int, list[str]]:
     }
 
 
+def fill_colour_gaps(pixels: bytearray, width: int) -> bytearray:
+    """Colour each single black pixel that has blue, or orange, on both sides.
+
+    On the Apple II a blue or orange area lights only every other pixel, and
+    the TV fills the pixels in between with the same colour. Inside a sprite
+    XekriRedmane already coloured them: sprites 0 to 9 contain no "colour,
+    black, same colour" (a test checks this). At a sprite's right edge the neighbour belongs to the next cell, so that
+    pixel stayed black. This fills it once the whole board is drawn. White
+    is two lit pixels side by side, so the reasoning does not hold for it.
+    Inferred from the colour model in Chapter 3, not measured.
+    """
+    black = PALETTE_INDEX["k"]
+    filled = bytearray(pixels)  # read from the original, so fills never chain
+    for start in range(0, len(pixels), width):
+        for x in range(start + 1, start + width - 1):
+            left, right = pixels[x - 1], pixels[x + 1]
+            if pixels[x] == black and left == right and left in GAP_FILL_COLOURS:
+                filled[x] = left
+    return filled
+
+
 def render_level(
     board: list[list[int]], sprites: dict[int, list[str]], scale: int = 1
 ) -> Image.Image:
@@ -92,6 +121,7 @@ def render_level(
                 pixels[start : start + CELL_WIDTH] = bytes(
                     PALETTE_INDEX[css] for css in line
                 )
+    pixels = fill_colour_gaps(pixels, width)
     image = Image.frombytes("P", (width, height), bytes(pixels))
     image.putpalette([channel for rgb in PALETTE.values() for channel in rgb])
     if scale != 1:
