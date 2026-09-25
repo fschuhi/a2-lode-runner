@@ -3760,6 +3760,163 @@ GET_LEVEL_FROM_KEYBOARD:
 One of the appealing things about Lode Runner are its levels. 150 levels are stored
 in the game, and there is even a level editor included.
 
+> **(`a2-lode-runner`):** All 150 levels, as the level editor shows them. Each stored cell value 0 to 9 is also the number of the sprite drawn for it, so the images show what play hides: trapdoors (sprite 5), hidden exit ladders (sprite 6), and the start positions of the guards and the player. Click a level to see it full size. The images are generated from the disk data with `make level-images`; the level format is described in [`06-levels.md`](https://github.com/fschuhi/a2-lode-runner/blob/main/docs/main-nw/06-levels.md). XekriRedmane coloured each sprite on its own, so where two blue cells meet, a single black pixel column is left between them; the images fill it with blue, as the TV does. Levels 8, 80 and 113 have six guards on the disk, one more than the game places; see the note after the guard check in the next section.
+
+<!-- level-catalog: begin -->
+<div class="level-catalog">
+<figure class="level"><figcaption>Level 1</figcaption><a href="images/levels/level-001.png"><img src="images/levels/level-001.png" alt="Level 1" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 2</figcaption><a href="images/levels/level-002.png"><img src="images/levels/level-002.png" alt="Level 2" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 3</figcaption><a href="images/levels/level-003.png"><img src="images/levels/level-003.png" alt="Level 3" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 4</figcaption><a href="images/levels/level-004.png"><img src="images/levels/level-004.png" alt="Level 4" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 5</figcaption><a href="images/levels/level-005.png"><img src="images/levels/level-005.png" alt="Level 5" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 6</figcaption><a href="images/levels/level-006.png"><img src="images/levels/level-006.png" alt="Level 6" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 7</figcaption><a href="images/levels/level-007.png"><img src="images/levels/level-007.png" alt="Level 7" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 8</figcaption><a href="images/levels/level-008.png"><img src="images/levels/level-008.png" alt="Level 8" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 9</figcaption><a href="images/levels/level-009.png"><img src="images/levels/level-009.png" alt="Level 9" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 10</figcaption><a href="images/levels/level-010.png"><img src="images/levels/level-010.png" alt="Level 10" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 11</figcaption><a href="images/levels/level-011.png"><img src="images/levels/level-011.png" alt="Level 11" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 12</figcaption><a href="images/levels/level-012.png"><img src="images/levels/level-012.png" alt="Level 12" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 13</figcaption><a href="images/levels/level-013.png"><img src="images/levels/level-013.png" alt="Level 13" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 14</figcaption><a href="images/levels/level-014.png"><img src="images/levels/level-014.png" alt="Level 14" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 15</figcaption><a href="images/levels/level-015.png"><img src="images/levels/level-015.png" alt="Level 15" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 16</figcaption><a href="images/levels/level-016.png"><img src="images/levels/level-016.png" alt="Level 16" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 17</figcaption><a href="images/levels/level-017.png"><img src="images/levels/level-017.png" alt="Level 17" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 18</figcaption><a href="images/levels/level-018.png"><img src="images/levels/level-018.png" alt="Level 18" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 19</figcaption><a href="images/levels/level-019.png"><img src="images/levels/level-019.png" alt="Level 19" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 20</figcaption><a href="images/levels/level-020.png"><img src="images/levels/level-020.png" alt="Level 20" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 21</figcaption><a href="images/levels/level-021.png"><img src="images/levels/level-021.png" alt="Level 21" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 22</figcaption><a href="images/levels/level-022.png"><img src="images/levels/level-022.png" alt="Level 22" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 23</figcaption><a href="images/levels/level-023.png"><img src="images/levels/level-023.png" alt="Level 23" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 24</figcaption><a href="images/levels/level-024.png"><img src="images/levels/level-024.png" alt="Level 24" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 25</figcaption><a href="images/levels/level-025.png"><img src="images/levels/level-025.png" alt="Level 25" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 26</figcaption><a href="images/levels/level-026.png"><img src="images/levels/level-026.png" alt="Level 26" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 27</figcaption><a href="images/levels/level-027.png"><img src="images/levels/level-027.png" alt="Level 27" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 28</figcaption><a href="images/levels/level-028.png"><img src="images/levels/level-028.png" alt="Level 28" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 29</figcaption><a href="images/levels/level-029.png"><img src="images/levels/level-029.png" alt="Level 29" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 30</figcaption><a href="images/levels/level-030.png"><img src="images/levels/level-030.png" alt="Level 30" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 31</figcaption><a href="images/levels/level-031.png"><img src="images/levels/level-031.png" alt="Level 31" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 32</figcaption><a href="images/levels/level-032.png"><img src="images/levels/level-032.png" alt="Level 32" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 33</figcaption><a href="images/levels/level-033.png"><img src="images/levels/level-033.png" alt="Level 33" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 34</figcaption><a href="images/levels/level-034.png"><img src="images/levels/level-034.png" alt="Level 34" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 35</figcaption><a href="images/levels/level-035.png"><img src="images/levels/level-035.png" alt="Level 35" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 36</figcaption><a href="images/levels/level-036.png"><img src="images/levels/level-036.png" alt="Level 36" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 37</figcaption><a href="images/levels/level-037.png"><img src="images/levels/level-037.png" alt="Level 37" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 38</figcaption><a href="images/levels/level-038.png"><img src="images/levels/level-038.png" alt="Level 38" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 39</figcaption><a href="images/levels/level-039.png"><img src="images/levels/level-039.png" alt="Level 39" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 40</figcaption><a href="images/levels/level-040.png"><img src="images/levels/level-040.png" alt="Level 40" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 41</figcaption><a href="images/levels/level-041.png"><img src="images/levels/level-041.png" alt="Level 41" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 42</figcaption><a href="images/levels/level-042.png"><img src="images/levels/level-042.png" alt="Level 42" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 43</figcaption><a href="images/levels/level-043.png"><img src="images/levels/level-043.png" alt="Level 43" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 44</figcaption><a href="images/levels/level-044.png"><img src="images/levels/level-044.png" alt="Level 44" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 45</figcaption><a href="images/levels/level-045.png"><img src="images/levels/level-045.png" alt="Level 45" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 46</figcaption><a href="images/levels/level-046.png"><img src="images/levels/level-046.png" alt="Level 46" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 47</figcaption><a href="images/levels/level-047.png"><img src="images/levels/level-047.png" alt="Level 47" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 48</figcaption><a href="images/levels/level-048.png"><img src="images/levels/level-048.png" alt="Level 48" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 49</figcaption><a href="images/levels/level-049.png"><img src="images/levels/level-049.png" alt="Level 49" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 50</figcaption><a href="images/levels/level-050.png"><img src="images/levels/level-050.png" alt="Level 50" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 51</figcaption><a href="images/levels/level-051.png"><img src="images/levels/level-051.png" alt="Level 51" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 52</figcaption><a href="images/levels/level-052.png"><img src="images/levels/level-052.png" alt="Level 52" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 53</figcaption><a href="images/levels/level-053.png"><img src="images/levels/level-053.png" alt="Level 53" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 54</figcaption><a href="images/levels/level-054.png"><img src="images/levels/level-054.png" alt="Level 54" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 55</figcaption><a href="images/levels/level-055.png"><img src="images/levels/level-055.png" alt="Level 55" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 56</figcaption><a href="images/levels/level-056.png"><img src="images/levels/level-056.png" alt="Level 56" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 57</figcaption><a href="images/levels/level-057.png"><img src="images/levels/level-057.png" alt="Level 57" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 58</figcaption><a href="images/levels/level-058.png"><img src="images/levels/level-058.png" alt="Level 58" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 59</figcaption><a href="images/levels/level-059.png"><img src="images/levels/level-059.png" alt="Level 59" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 60</figcaption><a href="images/levels/level-060.png"><img src="images/levels/level-060.png" alt="Level 60" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 61</figcaption><a href="images/levels/level-061.png"><img src="images/levels/level-061.png" alt="Level 61" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 62</figcaption><a href="images/levels/level-062.png"><img src="images/levels/level-062.png" alt="Level 62" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 63</figcaption><a href="images/levels/level-063.png"><img src="images/levels/level-063.png" alt="Level 63" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 64</figcaption><a href="images/levels/level-064.png"><img src="images/levels/level-064.png" alt="Level 64" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 65</figcaption><a href="images/levels/level-065.png"><img src="images/levels/level-065.png" alt="Level 65" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 66</figcaption><a href="images/levels/level-066.png"><img src="images/levels/level-066.png" alt="Level 66" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 67</figcaption><a href="images/levels/level-067.png"><img src="images/levels/level-067.png" alt="Level 67" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 68</figcaption><a href="images/levels/level-068.png"><img src="images/levels/level-068.png" alt="Level 68" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 69</figcaption><a href="images/levels/level-069.png"><img src="images/levels/level-069.png" alt="Level 69" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 70</figcaption><a href="images/levels/level-070.png"><img src="images/levels/level-070.png" alt="Level 70" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 71</figcaption><a href="images/levels/level-071.png"><img src="images/levels/level-071.png" alt="Level 71" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 72</figcaption><a href="images/levels/level-072.png"><img src="images/levels/level-072.png" alt="Level 72" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 73</figcaption><a href="images/levels/level-073.png"><img src="images/levels/level-073.png" alt="Level 73" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 74</figcaption><a href="images/levels/level-074.png"><img src="images/levels/level-074.png" alt="Level 74" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 75</figcaption><a href="images/levels/level-075.png"><img src="images/levels/level-075.png" alt="Level 75" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 76</figcaption><a href="images/levels/level-076.png"><img src="images/levels/level-076.png" alt="Level 76" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 77</figcaption><a href="images/levels/level-077.png"><img src="images/levels/level-077.png" alt="Level 77" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 78</figcaption><a href="images/levels/level-078.png"><img src="images/levels/level-078.png" alt="Level 78" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 79</figcaption><a href="images/levels/level-079.png"><img src="images/levels/level-079.png" alt="Level 79" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 80</figcaption><a href="images/levels/level-080.png"><img src="images/levels/level-080.png" alt="Level 80" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 81</figcaption><a href="images/levels/level-081.png"><img src="images/levels/level-081.png" alt="Level 81" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 82</figcaption><a href="images/levels/level-082.png"><img src="images/levels/level-082.png" alt="Level 82" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 83</figcaption><a href="images/levels/level-083.png"><img src="images/levels/level-083.png" alt="Level 83" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 84</figcaption><a href="images/levels/level-084.png"><img src="images/levels/level-084.png" alt="Level 84" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 85</figcaption><a href="images/levels/level-085.png"><img src="images/levels/level-085.png" alt="Level 85" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 86</figcaption><a href="images/levels/level-086.png"><img src="images/levels/level-086.png" alt="Level 86" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 87</figcaption><a href="images/levels/level-087.png"><img src="images/levels/level-087.png" alt="Level 87" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 88</figcaption><a href="images/levels/level-088.png"><img src="images/levels/level-088.png" alt="Level 88" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 89</figcaption><a href="images/levels/level-089.png"><img src="images/levels/level-089.png" alt="Level 89" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 90</figcaption><a href="images/levels/level-090.png"><img src="images/levels/level-090.png" alt="Level 90" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 91</figcaption><a href="images/levels/level-091.png"><img src="images/levels/level-091.png" alt="Level 91" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 92</figcaption><a href="images/levels/level-092.png"><img src="images/levels/level-092.png" alt="Level 92" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 93</figcaption><a href="images/levels/level-093.png"><img src="images/levels/level-093.png" alt="Level 93" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 94</figcaption><a href="images/levels/level-094.png"><img src="images/levels/level-094.png" alt="Level 94" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 95</figcaption><a href="images/levels/level-095.png"><img src="images/levels/level-095.png" alt="Level 95" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 96</figcaption><a href="images/levels/level-096.png"><img src="images/levels/level-096.png" alt="Level 96" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 97</figcaption><a href="images/levels/level-097.png"><img src="images/levels/level-097.png" alt="Level 97" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 98</figcaption><a href="images/levels/level-098.png"><img src="images/levels/level-098.png" alt="Level 98" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 99</figcaption><a href="images/levels/level-099.png"><img src="images/levels/level-099.png" alt="Level 99" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 100</figcaption><a href="images/levels/level-100.png"><img src="images/levels/level-100.png" alt="Level 100" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 101</figcaption><a href="images/levels/level-101.png"><img src="images/levels/level-101.png" alt="Level 101" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 102</figcaption><a href="images/levels/level-102.png"><img src="images/levels/level-102.png" alt="Level 102" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 103</figcaption><a href="images/levels/level-103.png"><img src="images/levels/level-103.png" alt="Level 103" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 104</figcaption><a href="images/levels/level-104.png"><img src="images/levels/level-104.png" alt="Level 104" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 105</figcaption><a href="images/levels/level-105.png"><img src="images/levels/level-105.png" alt="Level 105" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 106</figcaption><a href="images/levels/level-106.png"><img src="images/levels/level-106.png" alt="Level 106" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 107</figcaption><a href="images/levels/level-107.png"><img src="images/levels/level-107.png" alt="Level 107" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 108</figcaption><a href="images/levels/level-108.png"><img src="images/levels/level-108.png" alt="Level 108" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 109</figcaption><a href="images/levels/level-109.png"><img src="images/levels/level-109.png" alt="Level 109" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 110</figcaption><a href="images/levels/level-110.png"><img src="images/levels/level-110.png" alt="Level 110" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 111</figcaption><a href="images/levels/level-111.png"><img src="images/levels/level-111.png" alt="Level 111" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 112</figcaption><a href="images/levels/level-112.png"><img src="images/levels/level-112.png" alt="Level 112" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 113</figcaption><a href="images/levels/level-113.png"><img src="images/levels/level-113.png" alt="Level 113" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 114</figcaption><a href="images/levels/level-114.png"><img src="images/levels/level-114.png" alt="Level 114" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 115</figcaption><a href="images/levels/level-115.png"><img src="images/levels/level-115.png" alt="Level 115" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 116</figcaption><a href="images/levels/level-116.png"><img src="images/levels/level-116.png" alt="Level 116" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 117</figcaption><a href="images/levels/level-117.png"><img src="images/levels/level-117.png" alt="Level 117" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 118</figcaption><a href="images/levels/level-118.png"><img src="images/levels/level-118.png" alt="Level 118" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 119</figcaption><a href="images/levels/level-119.png"><img src="images/levels/level-119.png" alt="Level 119" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 120</figcaption><a href="images/levels/level-120.png"><img src="images/levels/level-120.png" alt="Level 120" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 121</figcaption><a href="images/levels/level-121.png"><img src="images/levels/level-121.png" alt="Level 121" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 122</figcaption><a href="images/levels/level-122.png"><img src="images/levels/level-122.png" alt="Level 122" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 123</figcaption><a href="images/levels/level-123.png"><img src="images/levels/level-123.png" alt="Level 123" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 124</figcaption><a href="images/levels/level-124.png"><img src="images/levels/level-124.png" alt="Level 124" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 125</figcaption><a href="images/levels/level-125.png"><img src="images/levels/level-125.png" alt="Level 125" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 126</figcaption><a href="images/levels/level-126.png"><img src="images/levels/level-126.png" alt="Level 126" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 127</figcaption><a href="images/levels/level-127.png"><img src="images/levels/level-127.png" alt="Level 127" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 128</figcaption><a href="images/levels/level-128.png"><img src="images/levels/level-128.png" alt="Level 128" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 129</figcaption><a href="images/levels/level-129.png"><img src="images/levels/level-129.png" alt="Level 129" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 130</figcaption><a href="images/levels/level-130.png"><img src="images/levels/level-130.png" alt="Level 130" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 131</figcaption><a href="images/levels/level-131.png"><img src="images/levels/level-131.png" alt="Level 131" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 132</figcaption><a href="images/levels/level-132.png"><img src="images/levels/level-132.png" alt="Level 132" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 133</figcaption><a href="images/levels/level-133.png"><img src="images/levels/level-133.png" alt="Level 133" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 134</figcaption><a href="images/levels/level-134.png"><img src="images/levels/level-134.png" alt="Level 134" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 135</figcaption><a href="images/levels/level-135.png"><img src="images/levels/level-135.png" alt="Level 135" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 136</figcaption><a href="images/levels/level-136.png"><img src="images/levels/level-136.png" alt="Level 136" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 137</figcaption><a href="images/levels/level-137.png"><img src="images/levels/level-137.png" alt="Level 137" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 138</figcaption><a href="images/levels/level-138.png"><img src="images/levels/level-138.png" alt="Level 138" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 139</figcaption><a href="images/levels/level-139.png"><img src="images/levels/level-139.png" alt="Level 139" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 140</figcaption><a href="images/levels/level-140.png"><img src="images/levels/level-140.png" alt="Level 140" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 141</figcaption><a href="images/levels/level-141.png"><img src="images/levels/level-141.png" alt="Level 141" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 142</figcaption><a href="images/levels/level-142.png"><img src="images/levels/level-142.png" alt="Level 142" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 143</figcaption><a href="images/levels/level-143.png"><img src="images/levels/level-143.png" alt="Level 143" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 144</figcaption><a href="images/levels/level-144.png"><img src="images/levels/level-144.png" alt="Level 144" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 145</figcaption><a href="images/levels/level-145.png"><img src="images/levels/level-145.png" alt="Level 145" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 146</figcaption><a href="images/levels/level-146.png"><img src="images/levels/level-146.png" alt="Level 146" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 147</figcaption><a href="images/levels/level-147.png"><img src="images/levels/level-147.png" alt="Level 147" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 148</figcaption><a href="images/levels/level-148.png"><img src="images/levels/level-148.png" alt="Level 148" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 149</figcaption><a href="images/levels/level-149.png"><img src="images/levels/level-149.png" alt="Level 149" width="140" height="88" loading="lazy"></a></figure>
+<figure class="level"><figcaption>Level 150</figcaption><a href="images/levels/level-150.png"><img src="images/levels/level-150.png" alt="Level 150" width="140" height="88" loading="lazy"></a></figure>
+</div>
+<!-- level-catalog: end -->
+
 ## Drawing a level
 
 
@@ -4055,6 +4212,10 @@ tables.
     BNE     .draw_sprite            ; Unconditional jump.
 
 @
+
+> **(`a2-lode-runner`):** Three of the shipped levels need this check: levels 8, 80 and 113 have six guards on the disk. The routine scans the board backwards, from row 15 up to row 0 and in each row from column 27 to column 0, so the sixth guard it meets, the one it removes, is the topmost guard, or the leftmost one if the topmost row has several. In level 8, below as the level editor shows it, that is the guard in row 2, column 5. In the game only the other five appear, as screenshots of level 8 in play confirm.
+>
+> ![Level 8 as the level editor shows it: six guards, of which the one in row 2, column 5 is removed when the level is drawn](images/levels/level-008.png)
 
 Here we insert a few unconditional branches because of relative jump limitations.
 
