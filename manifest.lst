@@ -6,25 +6,29 @@
 ## ⚠️ NON-NEGOTIABLE collaboration rules - READ FIRST
 CRITICAL_RULES.md
 
-## reading guide for bootstrapping a new session; either attached to the first message or passed as message body
+## Reading guide for bootstrapping a new session; either attached to the first message or passed as message body
 #FIRST_PROMPT.md
 
 LLM_INSTRUCTIONS.md
 manifest.lst
 tmp/project_tree.txt
 
-## standard project documentation
+## Standard project documentation
 README.md
 GOALS.md
 TODO.md
 HISTORY.md
 
+## Licensing
+#LICENSE
+#LICENSE-CC-BY-SA-4.0.md
+
 ## Docs from subproject to use `ultima1_reveng`'s HTML browser instead of static `reference/lode_runner_reveng/main.pdf`
 ## The subproject was closed after Phase 0+1. Use `research/build/index.html`.
-docs/reports/literate-migration/ACTION_PLAN.md
-docs/reports/literate-migration/README.md
-docs/reports/literate-migration/phase-0-inventory.md
-docs/reports/literate-migration/phase-1-converter-review.md
+#docs/reports/literate-migration/ACTION_PLAN.md
+#docs/reports/literate-migration/README.md
+#docs/reports/literate-migration/phase-0-inventory.md
+#docs/reports/literate-migration/phase-1-converter-review.md
 
 ### --- Docs ---
 
@@ -64,7 +68,7 @@ requirements.txt
 #scripts/weave_html.py
 #scripts/weave_lode_runner.py
 #scripts/web/app.js
-scripts/PROVENANCE.md
+#scripts/PROVENANCE.md
 
 ### --- Data ---
 #data/Lode_Runner_1983_Broderbund_cr_Reset_Vector.do
@@ -86,8 +90,8 @@ scripts/PROVENANCE.md
 
 ## https://github.com/XekriRedmane/lode_runner_reveng
 # noweb weaver, used for `nw...` `make` targets
-reference/lode_runner_reveng/PROVENANCE.md
-reference/lode_runner_reveng/README.md
+#reference/lode_runner_reveng/PROVENANCE.md
+#reference/lode_runner_reveng/README.md
 #reference/lode_runner_reveng/weave.py
 
 # Original literate source, written by XekriRedmane, byte-perfect tangle
