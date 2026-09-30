@@ -11,7 +11,7 @@ RESEARCH_DIR = $(ROOT_DIR)/research
 SETUP_STAMP = $(VENV_DIR)/.setup_stamp
 
 # --- Phony targets ---
-.PHONY: all setup test test-verbose nwchapter nwindex nwchunk latex-to-md nwhtml sprite-catalog level-ascii level-check level-images level-catalog clean showtree gentree patch filesdump filesdump-detailed help
+.PHONY: all setup test test-verbose nwchapter nwindex nwchunk latex-to-md nwhtml sprite-catalog level-ascii level-check level-images level-catalog dasm-listing clean showtree gentree patch filesdump filesdump-detailed help
 
 # Default target runs 'setup'
 all: setup
@@ -80,6 +80,11 @@ level-catalog: $(SETUP_STAMP) ## write the level catalog (images/levels/) into m
 	$(RUN_WITH_PATH) python scripts/level_catalog.py \
 		$(ROOT_DIR)/images/levels \
 		$(RESEARCH_DIR)/main.nw-edited.md
+
+# --- dasm ---
+dasm-listing: $(SETUP_STAMP) ## run dasm to create a listing from XekriRedmane's main.asm
+	cd reference/lode_runner_reveng && dasm main.asm -f3 -omain.bin -lmain.lst
+	python3 tools/dasm_listing_parser.py
 
 # --- Utility Targets ---
 
