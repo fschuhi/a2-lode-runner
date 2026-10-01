@@ -30,7 +30,7 @@ def clean_dasm_listing(input_file, output_file):
             comment = ""
             if ';' in line:
                 code_part, comment_part = line.split(';', 1)
-                comment = ';' + comment_part
+                comment = ';' + comment_part.rstrip()  # drop the line ending
             else:
                 code_part = line
 
